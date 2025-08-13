@@ -7,11 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="Layout\SideMenuLayout.xaml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="OpenSilver" Version="3.2.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Page Include="Layout\SideMenuLayout.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
 
 </Project>

@@ -3,11 +3,9 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:Awes.UiKit.OpenSilver.Sample"
+      xmlns:layout="clr-namespace:Awes.UiKit.OpenSilver.Layout;assembly=Awes.UiKit.OpenSilver"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       mc:Ignorable="d"
       Foreground="{DynamicResource Theme_TextBrush}">
-
-    <Grid Background="{DynamicResource Theme_BackgroundBrush}">
-        <TextBlock Text="Hello, World!" FontSize="23" Margin="32,32,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-    </Grid>
+    <layout:SideMenuLayout />
 </Page>
