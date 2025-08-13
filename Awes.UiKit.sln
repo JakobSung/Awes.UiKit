@@ -1,19 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36401.2 d17.14
+VisualStudioVersion = 17.14.36401.2
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Awes.UiKit.OpenSilver.Browser", "Awes.UiKit.OpenSilver\Awes.UiKit.OpenSilver.Browser\Awes.UiKit.OpenSilver.Browser.csproj", "{B01442F8-826F-48F2-8455-D2C3B52CABC9}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Awes.UiKit.OpenSilver", "Awes.UiKit.OpenSilver\Awes.UiKit.OpenSilver\Awes.UiKit.OpenSilver.csproj", "{E27E3E26-B659-45A3-9604-66E5CA42D5D6}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Awes.UiKit.OpenSilver.Simulator", "Awes.UiKit.OpenSilver\Awes.UiKit.OpenSilver.Simulator\Awes.UiKit.OpenSilver.Simulator.csproj", "{34F408B6-C1DB-4A09-9EE1-3AC2C3AB1159}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{C8D5274F-AC00-46C7-1F8D-E88E81087A52}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Awes.UiKit.OpenSilver", "Awes.UiKit.OpenSilver", "{FC3492D4-140D-4E75-ACAE-B6A910C34FA7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Awes.UiKit.OpenSilver", "Awes.UiKit.OpenSilver\Awes.UiKit.OpenSilver.csproj", "{2F97A27B-9777-4C56-8F95-F50791CF562E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Awes.UiKit", "Awes.UiKit\Awes.UiKit.csproj", "{25FBFA7E-FFFB-420F-ABF5-7C80549D6EDC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Awes.UiKit.OpenSilver.Sample.Browser", "Awes.UiKit.OpenSilver.Sample\Awes.UiKit.OpenSilver.Sample.Browser\Awes.UiKit.OpenSilver.Sample.Browser.csproj", "{214B973B-FC3C-4934-A9A9-10D6002E9D60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Awes.UiKit.OpenSilver.Sample", "Awes.UiKit.OpenSilver.Sample\Awes.UiKit.OpenSilver.Sample\Awes.UiKit.OpenSilver.Sample.csproj", "{A8452628-FE1F-4158-9BA0-67543763D6DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Awes.UiKit.OpenSilver.Sample.Simulator", "Awes.UiKit.OpenSilver.Sample\Awes.UiKit.OpenSilver.Sample.Simulator\Awes.UiKit.OpenSilver.Sample.Simulator.csproj", "{E2032F7E-5FA8-4A30-B97F-11B35A7CF9A9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,31 +19,30 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B01442F8-826F-48F2-8455-D2C3B52CABC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B01442F8-826F-48F2-8455-D2C3B52CABC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B01442F8-826F-48F2-8455-D2C3B52CABC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B01442F8-826F-48F2-8455-D2C3B52CABC9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E27E3E26-B659-45A3-9604-66E5CA42D5D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E27E3E26-B659-45A3-9604-66E5CA42D5D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E27E3E26-B659-45A3-9604-66E5CA42D5D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E27E3E26-B659-45A3-9604-66E5CA42D5D6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{34F408B6-C1DB-4A09-9EE1-3AC2C3AB1159}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{34F408B6-C1DB-4A09-9EE1-3AC2C3AB1159}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{34F408B6-C1DB-4A09-9EE1-3AC2C3AB1159}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{34F408B6-C1DB-4A09-9EE1-3AC2C3AB1159}.Release|Any CPU.Build.0 = Release|Any CPU
-		{25FBFA7E-FFFB-420F-ABF5-7C80549D6EDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{25FBFA7E-FFFB-420F-ABF5-7C80549D6EDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{25FBFA7E-FFFB-420F-ABF5-7C80549D6EDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{25FBFA7E-FFFB-420F-ABF5-7C80549D6EDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F97A27B-9777-4C56-8F95-F50791CF562E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F97A27B-9777-4C56-8F95-F50791CF562E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F97A27B-9777-4C56-8F95-F50791CF562E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F97A27B-9777-4C56-8F95-F50791CF562E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{214B973B-FC3C-4934-A9A9-10D6002E9D60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{214B973B-FC3C-4934-A9A9-10D6002E9D60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{214B973B-FC3C-4934-A9A9-10D6002E9D60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{214B973B-FC3C-4934-A9A9-10D6002E9D60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8452628-FE1F-4158-9BA0-67543763D6DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8452628-FE1F-4158-9BA0-67543763D6DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8452628-FE1F-4158-9BA0-67543763D6DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8452628-FE1F-4158-9BA0-67543763D6DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2032F7E-5FA8-4A30-B97F-11B35A7CF9A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2032F7E-5FA8-4A30-B97F-11B35A7CF9A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2032F7E-5FA8-4A30-B97F-11B35A7CF9A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2032F7E-5FA8-4A30-B97F-11B35A7CF9A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{B01442F8-826F-48F2-8455-D2C3B52CABC9} = {FC3492D4-140D-4E75-ACAE-B6A910C34FA7}
-		{E27E3E26-B659-45A3-9604-66E5CA42D5D6} = {FC3492D4-140D-4E75-ACAE-B6A910C34FA7}
-		{34F408B6-C1DB-4A09-9EE1-3AC2C3AB1159} = {FC3492D4-140D-4E75-ACAE-B6A910C34FA7}
-		{FC3492D4-140D-4E75-ACAE-B6A910C34FA7} = {C8D5274F-AC00-46C7-1F8D-E88E81087A52}
+		{214B973B-FC3C-4934-A9A9-10D6002E9D60} = {C8D5274F-AC00-46C7-1F8D-E88E81087A52}
+		{A8452628-FE1F-4158-9BA0-67543763D6DC} = {C8D5274F-AC00-46C7-1F8D-E88E81087A52}
+		{E2032F7E-5FA8-4A30-B97F-11B35A7CF9A9} = {C8D5274F-AC00-46C7-1F8D-E88E81087A52}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F4B3575F-5CD4-4967-ADC3-3A87447B7E9B}

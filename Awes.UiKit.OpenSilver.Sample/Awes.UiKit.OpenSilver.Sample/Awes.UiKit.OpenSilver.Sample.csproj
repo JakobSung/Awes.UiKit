@@ -25,8 +25,4 @@
     <Compile Include="MainPage.xaml.cs" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\Awes.UiKit\Awes.UiKit.csproj" />
-  </ItemGroup>
-
 </Project>

@@ -20,7 +20,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Awes.UiKit.OpenSilver\Awes.UiKit.OpenSilver.csproj" />
+    <ProjectReference Include="..\Awes.UiKit.OpenSilver.Sample\Awes.UiKit.OpenSilver.Sample.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,7 +1,7 @@
 ﻿using OpenSilver.Simulator;
 using System;
 
-namespace Awes.UiKit.OpenSilver.Simulator
+namespace Awes.UiKit.OpenSilver.Sample.Simulator
 {
     internal static class Startup
     {

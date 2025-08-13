@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Components.CompilerServices;
 using Microsoft.AspNetCore.Components.Rendering;
 using Microsoft.AspNetCore.Components.Routing;
 
-namespace Awes.UiKit.OpenSilver.Browser
+namespace Awes.UiKit.OpenSilver.Sample.Browser
 {
     public class App : ComponentBase
     {

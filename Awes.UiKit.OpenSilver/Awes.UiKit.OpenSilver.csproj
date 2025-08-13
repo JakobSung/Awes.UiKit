@@ -7,21 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="IModule.cs" />
-    <Compile Include="SideLayout.xaml.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="OpenSilver" Version="3.2.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <Page Include="SideLayout.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Themes\Generic.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
+    <Compile Include="Class1.cs" />
   </ItemGroup>
 
 </Project>

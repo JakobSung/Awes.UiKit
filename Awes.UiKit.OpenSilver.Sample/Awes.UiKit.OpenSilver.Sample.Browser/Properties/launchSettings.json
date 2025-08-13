@@ -8,7 +8,7 @@
     }
   },
   "profiles": {
-    "Awes.UiKit.OpenSilver.Browser": {
+    "Awes.UiKit.OpenSilver.Sample.Browser": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
