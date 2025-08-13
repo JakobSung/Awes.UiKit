@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using System.Threading.Tasks;
 
-namespace Awes.UiKit.OpenSilver.Browser
+namespace Awes.UiKit.OpenSilver.Sample.Browser
 {
     public class Program
     {

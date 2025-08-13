@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Components.Rendering;
 using OpenSilver.WebAssembly;
 using System.Threading.Tasks;
 
-namespace Awes.UiKit.OpenSilver.Browser.Pages
+namespace Awes.UiKit.OpenSilver.Sample.Browser.Pages
 {
     [Route("/")]
     public class Index : ComponentBase
@@ -15,7 +15,7 @@ namespace Awes.UiKit.OpenSilver.Browser.Pages
         protected async override Task OnInitializedAsync()
         {
             await base.OnInitializedAsync();
-            await Runner.RunApplicationAsync<Awes.UiKit.OpenSilver.App>();
+            await Runner.RunApplicationAsync<Awes.UiKit.OpenSilver.Sample.App>();
         }
     }
 }

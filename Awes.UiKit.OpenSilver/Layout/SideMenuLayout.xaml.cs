@@ -10,11 +10,11 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Navigation;
 
-namespace Awes.UiKit
+namespace Awes.UiKit.OpenSilver.Layout
 {
-    public partial class SideLayout : UserControl
+    public partial class SideMenuLayout : UserControl
     {
-        public SideLayout()
+        public SideMenuLayout()
         {
             this.InitializeComponent();
         }

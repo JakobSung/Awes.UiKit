@@ -5,7 +5,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace Awes.UiKit.OpenSilver
+namespace Awes.UiKit.OpenSilver.Sample
 {
     public partial class MainPage : Page
     {

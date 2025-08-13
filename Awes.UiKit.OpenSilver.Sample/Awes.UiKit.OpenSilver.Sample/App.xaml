@@ -1,8 +1,8 @@
 ﻿<Application
-    x:Class="Awes.UiKit.OpenSilver.App"
+    x:Class="Awes.UiKit.OpenSilver.Sample.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:Awes.UiKit.OpenSilver">
+    xmlns:local="clr-namespace:Awes.UiKit.OpenSilver.Sample">
     <Application.Resources>
         <ResourceDictionary>
 

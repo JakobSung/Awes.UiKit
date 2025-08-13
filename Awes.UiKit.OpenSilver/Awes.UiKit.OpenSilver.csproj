@@ -7,8 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="IModule.cs" />
-    <Compile Include="SideLayout.xaml.cs" />
+    <Compile Include="Layout\SideMenuLayout.xaml.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -16,10 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Page Include="SideLayout.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Themes\Generic.xaml">
+    <Page Include="Layout\SideMenuLayout.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
