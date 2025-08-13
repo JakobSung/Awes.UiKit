@@ -13,7 +13,7 @@ namespace Awes.UiKit.OpenSilver.Sample
         {
             this.InitializeComponent();
 
-            // Enter construction logic here...
+            
         }
     }
 }

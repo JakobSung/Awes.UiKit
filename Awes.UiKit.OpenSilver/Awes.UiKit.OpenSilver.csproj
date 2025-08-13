@@ -8,9 +8,11 @@
 
   <ItemGroup>
     <Compile Include="Layout\SideMenuLayout.xaml.cs" />
+    <Compile Include="Service\ServiceExtension.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.0" />
     <PackageReference Include="OpenSilver" Version="3.2.2" />
   </ItemGroup>
 
