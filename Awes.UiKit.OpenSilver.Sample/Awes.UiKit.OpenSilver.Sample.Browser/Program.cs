@@ -9,6 +9,7 @@ namespace Awes.UiKit.OpenSilver.Sample.Browser
         {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("#app");
+
             var host = builder.Build();
             await host.RunAsync();
         }
