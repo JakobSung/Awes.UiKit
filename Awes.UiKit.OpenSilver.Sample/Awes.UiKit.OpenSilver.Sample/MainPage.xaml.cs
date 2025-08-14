@@ -20,7 +20,7 @@ namespace Awes.UiKit.OpenSilver.Sample
         {
             try
             {
-                ILayoutManagerService layoutService = App.ServiceProvider.GetService(typeof(ILayoutManagerService)) as ILayoutManagerService;
+                ILayoutManagerService layoutService = AwesUiKit.ServiceProvider.GetService(typeof(ILayoutManagerService)) as ILayoutManagerService;
                 layoutService.CallTest("Call from Sample1");
                 layoutService.CallTest("Call from Sample2");
                 layoutService.CallTest("Call from Sample3");

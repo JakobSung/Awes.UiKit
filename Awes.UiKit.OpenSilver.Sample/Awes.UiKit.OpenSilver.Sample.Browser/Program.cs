@@ -10,7 +10,10 @@ namespace Awes.UiKit.OpenSilver.Sample.Browser
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("#app");
 
+            builder.Services.AddAwesUiKitService();
+
             var host = builder.Build();
+            AwesUiKit.UseAwesUiKit(host.Services);
             await host.RunAsync();
         }
     }
