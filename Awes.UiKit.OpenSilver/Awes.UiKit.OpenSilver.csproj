@@ -10,6 +10,7 @@
     <Compile Include="AwesUiKit.cs" />
     <Compile Include="Layout\SideMenuLayout.xaml.cs" />
     <Compile Include="Message\SideMenuLayoutMessage.cs" />
+    <Compile Include="Model\IMenuItem.cs" />
     <Compile Include="Service\LayoutManagerService.cs" />
     <Compile Include="Service\ServiceExtension.cs" />
   </ItemGroup>
