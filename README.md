@@ -34,12 +34,30 @@
 - Microsoft.Extensions.DependencyInjection / Abstractions
 - CommunityToolkit.Mvvm (메시징/ MVVM 확장 가능)
 
-## &#x1F50C;  DI 예시
+## &#x1F50C;  예시
 ```csharp
-var services = new ServiceCollection();
-services.AddAwesUiKit();
-var provider = services.BuildServiceProvider();
-var layout = provider.GetRequiredService<ILayoutManagerService>();
+
+var builder = WebAssemblyHostBuilder.CreateDefault(args);
+builder.RootComponents.Add<App>("#app");
+
+//의존성 주입
+builder.Services.AddAwesUiKitService();
+
+var host = builder.Build();
+
+//Service 의존성 주입
+AwesUiKit.UseAwesUiKit(host.Services);
+
+await host.RunAsync();
+
+........
+
+
+//Layout menu 구성
+ILayoutManagerService layoutService = App.ServiceProvider.GetService(typeof(ILayoutManagerService)) as ILayoutManagerService;
+layoutService.AddMenu("DashBoard", typeof(DashBoardView), typeof(TestViewModel));
+layoutService.AddMenu("Test", typeof(TestContentView), typeof(TestViewModel));
+
 ```
 
 
