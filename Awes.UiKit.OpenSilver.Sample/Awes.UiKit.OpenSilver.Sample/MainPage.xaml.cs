@@ -31,8 +31,7 @@ namespace Awes.UiKit.OpenSilver.Sample
             }
             catch (Exception ex)
             {
-
-                throw;
+                throw ex;
             }
             
         }

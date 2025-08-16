@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Awes.UiKit.OpenSilver.Sampl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Awes.UiKit.OpenSilver.Sample", "Awes.UiKit.OpenSilver.Sample\Awes.UiKit.OpenSilver.Sample\Awes.UiKit.OpenSilver.Sample.csproj", "{A8452628-FE1F-4158-9BA0-67543763D6DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Awes.UiKit.OpenSilver.Sample.Simulator", "Awes.UiKit.OpenSilver.Sample\Awes.UiKit.OpenSilver.Sample.Simulator\Awes.UiKit.OpenSilver.Sample.Simulator.csproj", "{E2032F7E-5FA8-4A30-B97F-11B35A7CF9A9}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,10 +29,6 @@ Global
 		{A8452628-FE1F-4158-9BA0-67543763D6DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8452628-FE1F-4158-9BA0-67543763D6DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8452628-FE1F-4158-9BA0-67543763D6DC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E2032F7E-5FA8-4A30-B97F-11B35A7CF9A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E2032F7E-5FA8-4A30-B97F-11B35A7CF9A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E2032F7E-5FA8-4A30-B97F-11B35A7CF9A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E2032F7E-5FA8-4A30-B97F-11B35A7CF9A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -42,7 +36,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{214B973B-FC3C-4934-A9A9-10D6002E9D60} = {C8D5274F-AC00-46C7-1F8D-E88E81087A52}
 		{A8452628-FE1F-4158-9BA0-67543763D6DC} = {C8D5274F-AC00-46C7-1F8D-E88E81087A52}
-		{E2032F7E-5FA8-4A30-B97F-11B35A7CF9A9} = {C8D5274F-AC00-46C7-1F8D-E88E81087A52}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F4B3575F-5CD4-4967-ADC3-3A87447B7E9B}
