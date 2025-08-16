@@ -14,8 +14,6 @@ namespace Awes.UiKit.OpenSilver.Sample
 {
     public sealed partial class App : Application
     {
-        public static IServiceProvider ServiceProvider { get; private set; }
-
         public App()
         {
             this.InitializeComponent();
@@ -37,14 +35,9 @@ namespace Awes.UiKit.OpenSilver.Sample
             catch (Exception ex)
             {
 
-                throw;
-            }
-            
 
             var mainPage = new MainPage();
             Window.Current.Content = mainPage;
-
-
         }
     }
 }
