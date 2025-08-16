@@ -110,8 +110,12 @@
             <ColumnDefinition Width="200" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <Border>
-            <ListBox x:Name="menuList" />
+        <Border BorderBrush="#515153"
+                BorderThickness="0,0,1,0">
+            <ListBox x:Name="menuList"
+                     Background="Transparent"
+                     BorderThickness="0"
+                     ScrollViewer.VerticalScrollBarVisibility="Auto"/>
         </Border>
         <ContentControl
             x:Name="content"
