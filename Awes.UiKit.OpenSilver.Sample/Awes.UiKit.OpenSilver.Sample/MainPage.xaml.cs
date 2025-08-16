@@ -1,4 +1,6 @@
-﻿using Awes.UiKit.OpenSilver.Service;
+﻿using Awes.UiKit.OpenSilver.Sample.View;
+using Awes.UiKit.OpenSilver.Sample.ViewModel;
+using Awes.UiKit.OpenSilver.Service;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -20,11 +22,12 @@ namespace Awes.UiKit.OpenSilver.Sample
         {
             try
             {
-                ILayoutManagerService layoutService = AwesUiKit.ServiceProvider.GetService(typeof(ILayoutManagerService)) as ILayoutManagerService;
-                layoutService.CallTest("Call from Sample1");
-                layoutService.CallTest("Call from Sample2");
-                layoutService.CallTest("Call from Sample3");
-                layoutService.CallTest("Call from Sample4");
+                ILayoutManagerService layoutService = App.ServiceProvider.GetService(typeof(ILayoutManagerService)) as ILayoutManagerService;
+                
+
+                layoutService.AddMenu("DashBoard", typeof(DashBoardView), typeof(TestViewModel));
+                layoutService.AddMenu("Test", typeof(TestContentView), typeof(TestViewModel));
+
             }
             catch (Exception ex)
             {

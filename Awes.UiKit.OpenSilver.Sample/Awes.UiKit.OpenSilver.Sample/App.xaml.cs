@@ -7,6 +7,8 @@ using System.Windows;
 using System.Windows.Controls;
 using Awes.UiKit.OpenSilver;
 using Awes.UiKit.OpenSilver.Service;
+using Awes.UiKit.OpenSilver.Sample.View;
+using Awes.UiKit.OpenSilver.Sample.ViewModel;
 
 namespace Awes.UiKit.OpenSilver.Sample
 {
@@ -16,6 +18,22 @@ namespace Awes.UiKit.OpenSilver.Sample
         {
             this.InitializeComponent();
 
+            try
+            {
+                var services = new ServiceCollection();
+                services.AddSingleton<ILayoutManagerService, LayoutManagerService>();
+
+                services.AddScoped<DashBoardView>();
+                services.AddScoped<TestContentView>();
+                services.AddScoped<TestViewModel>();
+
+                ServiceProvider = services.BuildServiceProvider();
+
+                AwesUiKit.UseAwesUiKit(ServiceProvider);
+
+            }
+            catch (Exception ex)
+            {
 
 
             var mainPage = new MainPage();

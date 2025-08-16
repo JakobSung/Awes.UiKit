@@ -19,11 +19,20 @@
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DashBoardView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
 
   <ItemGroup>
     <Compile Include="App.xaml.cs" />
     <Compile Include="MainPage.xaml.cs" />
+    <Compile Include="ViewModel\TestViewModel.cs" />
+    <Compile Include="View\DashBoardView.xaml.cs" />
+    <Compile Include="View\TestContentView.cs" />
   </ItemGroup>
 
   <ItemGroup>

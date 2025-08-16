@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace Awes.UiKit.OpenSilver.Message
 {
-    internal class SideMenuLayoutMessage
+    public class SideMenuAddMessage
     {
-        internal string Message { get; set; }
+        public object Message { get; internal set; }
+    }
+
+    public class SideMenuNavigateMessage
+    {
+        public string Header { get; internal set; }
     }
 }
