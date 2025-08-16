@@ -4,11 +4,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:Awes.UiKit.OpenSilver.Sample">
     <Application.Resources>
-        <ResourceDictionary>
-
-        </ResourceDictionary>
+        <ResourceDictionary />
     </Application.Resources>
     <Application.Theme>
-        <mt:ModernTheme CurrentPalette="Dark" xmlns:mt="http://opensilver.net/themes/modern"/>
+        <mt:ModernTheme xmlns:mt="http://opensilver.net/themes/modern" CurrentPalette="Dark" />
     </Application.Theme>
 </Application>
