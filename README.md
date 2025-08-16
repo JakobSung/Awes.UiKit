@@ -1,41 +1,40 @@
 # &#x2728; Awes.UiKit.OpenSilver
 
-(OpenSilver ±â¹İ UI Kit + »ùÇÃ ¾ÖÇÃ¸®ÄÉÀÌ¼Ç)
+(OpenSilver ê¸°ë°˜ UI Kit + ìƒ˜í”Œ ì• í”Œë¦¬ì¼€ì´ì…˜)
 
-Àç»ç¿ë °¡´ÉÇÑ ·¹ÀÌ¾Æ¿ô(SideMenuLayout), ¼­ºñ½º(DI), ½ºÅ¸ÀÏ µîÀ» Æ÷ÇÔÇÏ¸ç Simulator / WebAssembly È¯°æ¿¡¼­ ½ÇÇàµË´Ï´Ù.
+ì¬ì‚¬ìš© ê°€ëŠ¥í•œ ë ˆì´ì•„ì›ƒ(SideMenuLayout), ì„œë¹„ìŠ¤(DI), ìŠ¤íƒ€ì¼ ë“±ì„ í¬í•¨í•˜ë©° Simulator / WebAssembly í™˜ê²½ì—ì„œ ì‹¤í–‰ë©ë‹ˆë‹¤.
 
-> NOTE: ÆÄÀÏÀº UTF-8 ÀÎÄÚµùÀÔ´Ï´Ù. ÀÌ¸ğÁö´Â HTML ¿£Æ¼Æ¼·Î Ç¥±âÇÏ¿©(¿¹: `&#x2728;`) ÀÎÄÚµù/ÆùÆ® ¹®Á¦ ½Ã¿¡µµ ±úÁöÁö ¾Êµµ·Ï Çß½À´Ï´Ù.
 
-## &#x1F4D6; 1. °³¿ä
-- OpenSilver XAML UI ÄÄÆ÷³ÍÆ® ½ÇÇè ¹× °ø¿ë Kit
-- ListBox + Content ÆĞÅÏ ±â¹İ SideMenu ·¹ÀÌ¾Æ¿ô Á¦°ø
-- Microsoft.Extensions.DependencyInjection ±â¹İ È®Àå (AddAwesUiKit)
-- WebAssembly(ºê¶ó¿ìÀú) & Simulator ½ÇÇà Áö¿ø
+## &#x1F4D6;  ê°œìš”
+- OpenSilver XAML UI ì»´í¬ë„ŒíŠ¸ ì‹¤í—˜ ë° ê³µìš© Kit
+- ListBox + Content íŒ¨í„´ ê¸°ë°˜ SideMenu ë ˆì´ì•„ì›ƒ ì œê³µ
+- Microsoft.Extensions.DependencyInjection ê¸°ë°˜ í™•ì¥ (AddAwesUiKit)
+- WebAssembly(ë¸Œë¼ìš°ì €) & Simulator ì‹¤í–‰ ì§€ì›
 
-## &#x1F6E0; 2. »ç¿ë ±â¼ú & ÇÁ·¹ÀÓ¿öÅ©
-| ±â¼ú | ¿ëµµ |
+## &#x1F6E0;  ì‚¬ìš© ê¸°ìˆ  & í”„ë ˆì„ì›Œí¬
+| ê¸°ìˆ  | ìš©ë„ |
 |------|------|
-| OpenSilver 3.x | XAML UI ·»´õ¸µ (Silverlight ½ºÅ¸ÀÏ) |
-| .NET Standard 2.0 | °ø¿ë ¶óÀÌºê·¯¸® Å¸°Ù |
-| .NET 9 / WebAssembly | ºê¶ó¿ìÀú È£½ºÆÃ |
-| Blazor WASM Host | OpenSilver WASM ±¸µ¿ ·¡ÆÛ |
-| Microsoft.Extensions.DependencyInjection | DI ÄÁÅ×ÀÌ³Ê |
+| OpenSilver 3.x | XAML UI ë Œë”ë§ (Silverlight ìŠ¤íƒ€ì¼) |
+| .NET Standard 2.0 | ê³µìš© ë¼ì´ë¸ŒëŸ¬ë¦¬ íƒ€ê²Ÿ |
+| .NET 9 / WebAssembly | ë¸Œë¼ìš°ì € í˜¸ìŠ¤íŒ… |
+| Blazor WASM Host | OpenSilver WASM êµ¬ë™ ë˜í¼ |
+| Microsoft.Extensions.DependencyInjection | DI ì»¨í…Œì´ë„ˆ |
 
-## &#x1F4C1; 3. ÇÁ·ÎÁ§Æ® ±¸Á¶
-| ÇÁ·ÎÁ§Æ® | ¼³¸í |
+## &#x1F4C1;  í”„ë¡œì íŠ¸ êµ¬ì¡°
+| í”„ë¡œì íŠ¸ | ì„¤ëª… |
 |----------|------|
-| Awes.UiKit.OpenSilver | UI Kit (Layout, Service µî·Ï) |
-| Awes.UiKit.OpenSilver.Sample | ±âº» »ùÇÃ (Simulator ´ë»ó) |
+| Awes.UiKit.OpenSilver | UI Kit (Layout, Service ë“±ë¡) |
+| Awes.UiKit.OpenSilver.Sample | ê¸°ë³¸ ìƒ˜í”Œ (Simulator ëŒ€ìƒ) |
 | Awes.UiKit.OpenSilver.Sample.Browser | WebAssembly Host (net9.0) |
-| Awes.UiKit.OpenSilver.Sample.Simulator | µ¥½ºÅ©Åé Simulator ¿£Æ®¸® |
+| Awes.UiKit.OpenSilver.Sample.Simulator | ë°ìŠ¤í¬í†± Simulator ì—”íŠ¸ë¦¬ |
 
-## &#x1F4E6; 4. ÇÙ½É ÀÇÁ¸¼º (NuGet)
+## &#x1F4E6; 4. í•µì‹¬ ì˜ì¡´ì„± (NuGet)
 - OpenSilver / OpenSilver.WebAssembly / OpenSilver.Themes.Modern
 - Microsoft.AspNetCore.Components.WebAssembly
 - Microsoft.Extensions.DependencyInjection / Abstractions
-- CommunityToolkit.Mvvm (¸Ş½ÃÂ¡/ MVVM È®Àå °¡´É)
+- CommunityToolkit.Mvvm (ë©”ì‹œì§•/ MVVM í™•ì¥ ê°€ëŠ¥)
 
-## &#x1F50C; 5. DI ¿¹½Ã
+## &#x1F50C;  DI ì˜ˆì‹œ
 ```csharp
 var services = new ServiceCollection();
 services.AddAwesUiKit();
@@ -43,29 +42,27 @@ var provider = services.BuildServiceProvider();
 var layout = provider.GetRequiredService<ILayoutManagerService>();
 ```
 
-## &#x1F680; 6. ½ÇÇà
-### Simulator
-Visual Studio¿¡¼­ `Awes.UiKit.OpenSilver.Sample.Simulator` ½ÇÇà
+
 
 ### Browser (WebAssembly)
-`Awes.UiKit.OpenSilver.Sample.Browser` ½ÇÇà (F5)
+`Awes.UiKit.OpenSilver.Sample.Browser` ì‹¤í–‰ (F5)
 
-## &#x1F52C; 7. ÇâÈÄ °èÈ¹
-- LayoutManagerService ±â´É È®Àå (µ¿Àû ³×ºñ°ÔÀÌ¼Ç)
-- ³×ºñ°ÔÀÌ¼Ç/¶ó¿ìÆÃ À¯Æ¿ Ãß°¡
-- Å×¸¶ / ´ÙÅ©¸ğµå Áö¿ø
-- ´Ù±¹¾î(Localization)
-- Å×½ºÆ® / »ùÇÃ ViewModel Ãß°¡
+## &#x1F52C;  í–¥í›„ ê³„íš
+- LayoutManagerService ê¸°ëŠ¥ í™•ì¥ (ë™ì  ë„¤ë¹„ê²Œì´ì…˜)
+- ë„¤ë¹„ê²Œì´ì…˜/ë¼ìš°íŒ… ìœ í‹¸ ì¶”ê°€
+- í…Œë§ˆ / ë‹¤í¬ëª¨ë“œ ì§€ì›
+- ë‹¤êµ­ì–´(Localization)
+- í…ŒìŠ¤íŠ¸ / ìƒ˜í”Œ ViewModel ì¶”ê°€
 
-## &#x1F4DC; 8. ¶óÀÌ¼±½º
-ÀÌ ÇÁ·ÎÁ§Æ®´Â MIT ¶óÀÌ¼±½º¸¦ µû¸¨´Ï´Ù. (LICENSE ÆÄÀÏ ÂüÁ¶)
+## &#x1F4DC;  ë¼ì´ì„ ìŠ¤
+ì´ í”„ë¡œì íŠ¸ëŠ” MIT ë¼ì´ì„ ìŠ¤ë¥¼ ë”°ë¦…ë‹ˆë‹¤. (LICENSE íŒŒì¼ ì°¸ì¡°)
 
-## &#x1F91D; 9. ±â¿© ¹æ¹ı
+## &#x1F91D;  ê¸°ì—¬ ë°©ë²•
 1. Fork
-2. `feature/` ºê·£Ä¡ »ı¼º
-3. Ä¿¹Ô & PR »ı¼º
+2. `feature/` ë¸Œëœì¹˜ ìƒì„±
+3. ì»¤ë°‹ & PR ìƒì„±
 
-ÀÌ½´ / °³¼± Á¦¾ÈÀº GitHub Issues È°¿ë ¹Ù¶ø´Ï´Ù.
+ì´ìŠˆ / ê°œì„  ì œì•ˆì€ GitHub Issues í™œìš© ë°”ëë‹ˆë‹¤.
 
 ---
 Made for experimentation. &#x2728;
