@@ -1,6 +1,9 @@
 # &#x2728; Awes.UiKit.OpenSilver
 
-(OpenSilver 기반 UI Kit + 샘플 애플리케이션)
+[![NuGet Version](https://img.shields.io/nuget/v/Awes.UiKit.OpenSilver.svg)](https://www.nuget.org/packages/Awes.UiKit.OpenSilver/)
+[![Build Status](https://github.com/JakobSung/Awes.UiKit/actions/workflows/nuget-publish.yml/badge.svg)](https://github.com/JakobSung/Awes.UiKit/actions/workflows/nuget-publish.yml)
+
+OpenSilver 기반 UI Kit + 샘플 애플리케이션
 
 재사용 가능한 레이아웃(SideMenuLayout), 서비스(DI), 스타일 등을 포함하며 Simulator / WebAssembly 환경에서 실행됩니다.
 
