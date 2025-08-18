@@ -1,18 +1,18 @@
 # &#x2728; Awes.UiKit.OpenSilver
 
+
 [![NuGet Version](https://img.shields.io/nuget/v/Awes.UiKit.OpenSilver.svg)](https://www.nuget.org/packages/Awes.UiKit.OpenSilver/)
 [![Build Status](https://github.com/JakobSung/Awes.UiKit/actions/workflows/nuget-publish.yml/badge.svg)](https://github.com/JakobSung/Awes.UiKit/actions/workflows/nuget-publish.yml)
 
 OpenSilver 기반 UI Kit + 샘플 애플리케이션
 
-재사용 가능한 레이아웃(SideMenuLayout), 서비스(DI), 스타일 등을 포함하며 Simulator / WebAssembly 환경에서 실행됩니다.
-
+재사용 가능한 레이아웃(SideMenuLayout) 및 Control, 서비스(DI), 스타일 등을 포함하며 OpenSilver WebAssembly 환경에서 실행됩니다.
+https://opensilver.net/
 
 ## &#x1F4D6;  개요
 - OpenSilver XAML UI 컴포넌트 실험 및 공용 Kit
-- ListBox + Content 패턴 기반 SideMenu 레이아웃 제공
+- SideMenu 레이아웃 제공
 - Microsoft.Extensions.DependencyInjection 기반 확장 (AddAwesUiKit)
-- WebAssembly(브라우저) & Simulator 실행 지원
 
 ## &#x1F6E0;  사용 기술 & 프레임워크
 | 기술 | 용도 |
@@ -29,7 +29,6 @@ OpenSilver 기반 UI Kit + 샘플 애플리케이션
 | Awes.UiKit.OpenSilver | UI Kit (Layout, Service 등록) |
 | Awes.UiKit.OpenSilver.Sample | 기본 샘플 (Simulator 대상) |
 | Awes.UiKit.OpenSilver.Sample.Browser | WebAssembly Host (net9.0) |
-| Awes.UiKit.OpenSilver.Sample.Simulator | 데스크톱 Simulator 엔트리 |
 
 ## &#x1F4E6; 4. 핵심 의존성 (NuGet)
 - OpenSilver / OpenSilver.WebAssembly / OpenSilver.Themes.Modern
@@ -61,19 +60,12 @@ ILayoutManagerService layoutService = App.ServiceProvider.GetService(typeof(ILay
 layoutService.AddMenu("DashBoard", typeof(DashBoardView), typeof(TestViewModel));
 layoutService.AddMenu("Test", typeof(TestContentView), typeof(TestViewModel));
 
+
 ```
 
 
-
-### Browser (WebAssembly)
-`Awes.UiKit.OpenSilver.Sample.Browser` 실행 (F5)
-
 ## &#x1F52C;  향후 계획
-- LayoutManagerService 기능 확장 (동적 네비게이션)
-- 네비게이션/라우팅 유틸 추가
-- 테마 / 다크모드 지원
-- 다국어(Localization)
-- 테스트 / 샘플 ViewModel 추가
+- LayoutManagerService 기능 확장
 
 ## &#x1F4DC;  라이선스
 이 프로젝트는 MIT 라이선스를 따릅니다. (LICENSE 파일 참조)
