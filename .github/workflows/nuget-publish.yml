@@ -45,7 +45,7 @@ jobs:
           path: artifacts/*.nupkg
 
       - name: Publish to NuGet
-        if: github.event_name == 'push'
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
         env:
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
         run: |
