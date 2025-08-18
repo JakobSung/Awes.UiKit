@@ -1,0 +1,64 @@
+name: Publish NuGet (Awes.UiKit.OpenSilver)
+
+on:
+  push:
+    branches: [ master ]
+    paths:
+      - 'Awes.UiKit.OpenSilver/**'
+      - '.github/workflows/nuget-publish.yml'
+  workflow_dispatch: {}
+
+jobs:
+  pack-and-publish:
+    runs-on: ubuntu-latest
+    env:
+      DOTNET_SKIP_FIRST_TIME_EXPERIENCE: '1'
+      DOTNET_NOLOGO: '1'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Restore
+        run: dotnet restore Awes.UiKit.OpenSilver/Awes.UiKit.OpenSilver.csproj
+
+      - name: Build (Release)
+        run: dotnet build Awes.UiKit.OpenSilver/Awes.UiKit.OpenSilver.csproj -c Release --no-restore
+
+      - name: Pack
+        # csproj에 GeneratePackageOnBuild=true 설정되어 있으므로 build로 생성되지만, 재확보용으로 pack 수행
+        run: dotnet pack Awes.UiKit.OpenSilver/Awes.UiKit.OpenSilver.csproj -c Release --no-build -o ./artifacts
+
+      - name: List artifacts
+        run: ls -al ./artifacts
+
+      - name: Upload artifact (nupkg)
+        uses: actions/upload-artifact@v4
+        with:
+          name: nuget-packages
+          path: artifacts/*.nupkg
+
+      - name: Publish to NuGet
+        if: github.event_name == 'push'
+        env:
+          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+        run: |
+          for pkg in artifacts/*.nupkg; do
+            echo "Pushing $pkg";
+            dotnet nuget push "$pkg" \
+              --api-key "$NUGET_API_KEY" \
+              --source https://api.nuget.org/v3/index.json \
+              --skip-duplicate || exit 1;
+          done
+
+      - name: Summary
+        run: |
+          echo "## NuGet Publish Summary" >> $GITHUB_STEP_SUMMARY
+          echo "Attempted to publish packages in ./artifacts (duplicates skipped)." >> $GITHUB_STEP_SUMMARY
+          echo "Ensure secrets.NUGET_API_KEY is configured." >> $GITHUB_STEP_SUMMARY
