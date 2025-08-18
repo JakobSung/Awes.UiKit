@@ -1,7 +1,5 @@
 # Awes.UiKit.OpenSilver
 
-[![NuGet Version](https://img.shields.io/nuget/v/Awes.UiKit.OpenSilver.svg)](https://www.nuget.org/packages/Awes.UiKit.OpenSilver/)
-[![Build Status](https://github.com/JakobSung/Awes.UiKit/actions/workflows/nuget-publish.yml/badge.svg)](https://github.com/JakobSung/Awes.UiKit/actions/workflows/nuget-publish.yml)
 
 Minimal UI Kit for OpenSilver (netstandard2.0).
 
