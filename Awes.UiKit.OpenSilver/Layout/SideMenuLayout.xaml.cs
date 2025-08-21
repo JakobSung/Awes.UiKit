@@ -18,6 +18,24 @@ namespace Awes.UiKit.OpenSilver.Layout
         public static readonly DependencyProperty MenuItemListBoxItemContainerStyleProperty = DependencyProperty.Register("MenuItemListBoxItemContainerStyle", typeof(Style), typeof(SideMenuLayout),
             new PropertyMetadata(OnChangedItemContainerStyle));
 
+        public static readonly DependencyProperty MenuFooterProperty = DependencyProperty.Register("MenuFooter", typeof(object), typeof(SideMenuLayout),
+            new PropertyMetadata(OnchagedFooter));
+
+        public static readonly DependencyProperty MenuHeaderProperty = DependencyProperty.Register("MenuHeader", typeof(object), typeof(SideMenuLayout),
+            new PropertyMetadata(OnChangedHeader));
+
+        public object MenuFooter
+        {
+            get => GetValue(MenuFooterProperty);
+            set => SetValue(MenuFooterProperty, value);
+        }
+
+        public object MenuHeader
+        {
+            get => GetValue(MenuHeaderProperty);
+            set => SetValue(MenuHeaderProperty, value);
+        }   
+
         public DataTemplate MenuItemTemplate
         {
             get => (DataTemplate)GetValue(MenuItemTemplateProperty);
@@ -29,21 +47,25 @@ namespace Awes.UiKit.OpenSilver.Layout
             get => (Style)GetValue(MenuItemListBoxItemContainerStyleProperty);
             set => SetValue(MenuItemListBoxItemContainerStyleProperty, value);
         }
+        private static void OnchagedFooter(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            ((SideMenuLayout)d).ChangedFooter(e.NewValue);
+        }
 
+        private static void OnChangedHeader(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            ((SideMenuLayout)d).ChangeMenuHeader(e.NewValue);
+        }   
 
         private static void OnChangedItemContainerStyle(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             ((SideMenuLayout)d).ChangeItemContainerStyle((Style)e.NewValue);
         }
 
-        
-
         private static void OnChangedItemTemplate(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             ((SideMenuLayout)d).ChangeItemTemplate((DataTemplate)e.NewValue);
         }
-
-
         
         public SideMenuLayout()
         {
@@ -105,5 +127,16 @@ namespace Awes.UiKit.OpenSilver.Layout
         {
             SetItemContainerStyle(newValue);
         }
+
+        private void ChangedFooter(object newValue)
+        {
+            footer.Content = newValue;
+        }
+
+        private void ChangeMenuHeader(object newValue)
+        {
+            header.Content = newValue;
+        }
+
     }
 }
