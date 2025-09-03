@@ -117,14 +117,18 @@
                     <RowDefinition/>
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
-                <ContentControl x:Name="header"/>
+                <ContentControl x:Name="header"
+                                HorizontalContentAlignment="Stretch"
+                                VerticalContentAlignment="Stretch"/>
                 <ListBox Grid.Row="1"
                     x:Name="menuList"
                     Background="Transparent"
                     BorderThickness="0"
                     ScrollViewer.VerticalScrollBarVisibility="Auto" />
                 <ContentControl Grid.Row="2"
-                                x:Name="footer"/>
+                                x:Name="footer"
+                                HorizontalContentAlignment="Stretch"
+                                VerticalContentAlignment="Stretch" />
             </Grid>
         </Border>
         <ContentControl

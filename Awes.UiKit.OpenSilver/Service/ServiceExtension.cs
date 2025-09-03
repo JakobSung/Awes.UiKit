@@ -10,6 +10,7 @@ namespace Awes.UiKit.OpenSilver
 {
     public static class ServiceExtension
     {
+        
         public static IServiceCollection AddAwesUiKitService(this IServiceCollection services)
         {
             services.AddSingleton<ILayoutManagerService, LayoutManagerService>();
