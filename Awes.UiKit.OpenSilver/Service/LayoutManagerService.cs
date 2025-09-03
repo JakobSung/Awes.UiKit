@@ -52,8 +52,8 @@ namespace Awes.UiKit.OpenSilver.Service
         /// service provider.</param>
         public virtual void AddMenu(string header, Type view, Type viewModel)
         {
-            FrameworkElement v = AwesUiKit.ServiceProvider.GetService(view) as FrameworkElement;
-            var vm = AwesUiKit.ServiceProvider.GetService(viewModel);
+            FrameworkElement v = AwesUiKit.GetServiceProvider().GetService(view) as FrameworkElement;
+            var vm = AwesUiKit.GetServiceProvider().GetService(viewModel);
             v.DataContext = vm;
 
             MenuItem menu = new MenuItem(header, v);

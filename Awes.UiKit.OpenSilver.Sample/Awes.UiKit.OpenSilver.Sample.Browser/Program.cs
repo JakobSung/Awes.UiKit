@@ -1,5 +1,14 @@
-﻿using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+﻿using Awes.UiKit.OpenSilver.Builder;
+using Awes.UiKit.OpenSilver.Sample.View;
+using Awes.UiKit.OpenSilver.Sample.ViewModel;
+using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using System;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls.DataVisualization.Charting;
 
 namespace Awes.UiKit.OpenSilver.Sample.Browser
 {
@@ -7,14 +16,16 @@ namespace Awes.UiKit.OpenSilver.Sample.Browser
     {
         public static async Task Main(string[] args)
         {
-            var builder = WebAssemblyHostBuilder.CreateDefault(args);
-            builder.RootComponents.Add<App>("#app");
+            var builder = AwesUiKitWasmHostBuilder.CreateHost<App>(args);
 
-            builder.Services.AddAwesUiKitService();
-
+            builder.ConfigureServices(services =>
+            {
+                services.AddScoped<DashBoardView>();
+                services.AddScoped<TestContentView>();
+                services.AddScoped<TestViewModel>();
+            });
+            
             var host = builder.Build();
-
-            AwesUiKit.UseAwesUiKit(host.Services);
 
             await host.RunAsync();
         }

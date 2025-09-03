@@ -9,10 +9,16 @@ namespace Awes.UiKit.OpenSilver
 {
     public static class AwesUiKit
     {
-        public static IServiceProvider ServiceProvider { get; set; }
-        public static void UseAwesUiKit(IServiceProvider provicer)
+        private static IServiceProvider _serviceProvider { get; set; }
+
+        public static void RegistServiceProvdier(IServiceProvider provider)
         {
-            ServiceProvider = provicer;
+            _serviceProvider = provider;
+        }
+
+        public static IServiceProvider GetServiceProvider()
+        {
+            return _serviceProvider;
         }
     }
 }
