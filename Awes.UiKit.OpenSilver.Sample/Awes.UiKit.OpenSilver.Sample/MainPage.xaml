@@ -7,5 +7,23 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       mc:Ignorable="d"
       Foreground="{DynamicResource Theme_TextBrush}">
-    <layout:SideMenuLayout />
+    <layout:SideMenuLayout>
+        <layout:SideMenuLayout.MenuHeader>
+            <Grid Height="50">
+                <TextBlock Text="Menu Header"
+                           FontSize="20"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center" />
+            </Grid>
+        </layout:SideMenuLayout.MenuHeader>
+        <layout:SideMenuLayout.MenuFooter>
+            <Grid Height="50">
+                <TextBlock Text="Menu Footer"
+                           FontSize="20"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center" />
+            </Grid>
+        </layout:SideMenuLayout.MenuFooter>
+    </layout:SideMenuLayout>
 </Page>

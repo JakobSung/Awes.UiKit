@@ -110,12 +110,26 @@
             <ColumnDefinition Width="200" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <Border BorderBrush="#515153"
-                BorderThickness="0,0,1,0">
-            <ListBox x:Name="menuList"
-                     Background="Transparent"
-                     BorderThickness="0"
-                     ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+        <Border BorderBrush="#515153" BorderThickness="0,0,1,0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <ContentControl x:Name="header"
+                                HorizontalContentAlignment="Stretch"
+                                VerticalContentAlignment="Stretch"/>
+                <ListBox Grid.Row="1"
+                    x:Name="menuList"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    ScrollViewer.VerticalScrollBarVisibility="Auto" />
+                <ContentControl Grid.Row="2"
+                                x:Name="footer"
+                                HorizontalContentAlignment="Stretch"
+                                VerticalContentAlignment="Stretch" />
+            </Grid>
         </Border>
         <ContentControl
             x:Name="content"

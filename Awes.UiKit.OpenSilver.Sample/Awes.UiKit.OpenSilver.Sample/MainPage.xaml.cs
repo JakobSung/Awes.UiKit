@@ -23,10 +23,11 @@ namespace Awes.UiKit.OpenSilver.Sample
             try
             {
                 ILayoutManagerService layoutService = App.ServiceProvider.GetService(typeof(ILayoutManagerService)) as ILayoutManagerService;
-                
 
                 layoutService.AddMenu("DashBoard", typeof(DashBoardView), typeof(TestViewModel));
                 layoutService.AddMenu("Test", typeof(TestContentView), typeof(TestViewModel));
+
+
 
             }
             catch (Exception ex)
