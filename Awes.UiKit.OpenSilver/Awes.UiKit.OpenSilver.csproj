@@ -6,7 +6,7 @@
     <DefineSilverlight>true</DefineSilverlight>
     <!-- NuGet metadata -->
     <PackageId>Awes.UiKit.OpenSilver</PackageId>
-    <Version>0.1</Version>
+    <Version>0.1.1</Version>
     <Authors>Awes</Authors>
     <Company>Awes</Company>
     <Description>OpenSilver UI Kit: Side menu layout, layout manager service, messaging integration and DI extension.</Description>
