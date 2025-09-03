@@ -75,7 +75,7 @@ namespace Awes.UiKit.OpenSilver.Layout
 
         private void SideMenuLayout_Loaded(object sender, RoutedEventArgs e)
         {
-            ILayoutManagerService layoutSerivce = AwesUiKit.ServiceProvider.GetService<ILayoutManagerService>();
+            ILayoutManagerService layoutSerivce = AwesUiKit.GetServiceProvider().GetService<ILayoutManagerService>();
 
             menuList.ItemsSource = layoutSerivce.GetMenuItems();
             menuList.SelectedItem = menuList.Items.FirstOrDefault();

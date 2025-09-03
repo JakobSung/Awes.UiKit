@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;net9.0</TargetFrameworks>
     <EnableDefaultItems>false</EnableDefaultItems>
     <DefineSilverlight>true</DefineSilverlight>
     <!-- NuGet metadata -->
@@ -24,7 +24,6 @@
     <Deterministic>true</Deterministic>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
-
   <ItemGroup>
     <!-- README & LICENSE 포함 -->
     <None Include="README.NuGet.md" Pack="true" PackagePath="/" />
@@ -33,11 +32,13 @@
 
   <ItemGroup>
     <Compile Include="AwesUiKit.cs" />
+    <Compile Include="Builder\AwesUiKitBuilder.cs" />
+    <Compile Include="Builder\AwesUiKitWasmHostBuilder.cs" />
     <Compile Include="Layout\SideMenuLayout.xaml.cs" />
     <Compile Include="Message\SideMenuLayoutMessage.cs" />
     <Compile Include="Model\IMenuItem.cs" />
     <Compile Include="Service\LayoutManagerService.cs" />
-    <Compile Include="Service\ServiceExtension.cs" />
+    <Compile Include="Service\UseAwesUiKitExtensions.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -46,6 +47,11 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.8" />
     <PackageReference Include="OpenSilver" Version="3.2.2" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
+  </ItemGroup>
+
+  <!-- Only needed when compiling for net9.0 to access WebAssemblyHostBuilder type -->
+  <ItemGroup Condition="'$(TargetFramework)' == 'net9.0'">
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="9.0.0" />
   </ItemGroup>
 
   <ItemGroup>
