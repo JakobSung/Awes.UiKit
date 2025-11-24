@@ -1,9 +1,9 @@
-﻿<Application x:Class="Awes.UiKit.Wpf.Sample.App"
+﻿<local:AwesWpfApp x:Class="Awes.UiKit.Wpf.Sample.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Awes.UiKit.Wpf.Sample"
              StartupUri="MainWindow.xaml">
-    <Application.Resources>
-         
-    </Application.Resources>
-</Application>
+    <local:AwesWpfApp.Resources>
+        
+    </local:AwesWpfApp.Resources>
+</local:AwesWpfApp>

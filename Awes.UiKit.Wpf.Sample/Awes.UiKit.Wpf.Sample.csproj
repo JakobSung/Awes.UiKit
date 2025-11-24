@@ -8,4 +8,8 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Awes.UiKit.Wpf\Awes.UiKit.Wpf.csproj" />
+  </ItemGroup>
+
 </Project>

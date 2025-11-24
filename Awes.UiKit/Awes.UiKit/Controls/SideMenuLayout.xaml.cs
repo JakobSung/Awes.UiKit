@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Microsoft.Extensions.DependencyInjection;
+//using Microsoft.Extensions.DependencyInjection;
 
 namespace Awes.UiKit.Controls
 {
@@ -88,14 +88,14 @@ namespace Awes.UiKit.Controls
             SetTemplate(MenuItemTemplate);
             SetItemContainerStyle(MenuItemListBoxItemContainerStyle);
 
-            IMenuManagerService? sidmenuSerivce = AwesUiKit.GetServiceProvider().GetService<IMenuManagerService>();
+            //IMenuManagerService? sidmenuSerivce = AwesUiKit.GetServiceProvider().GetService<IMenuManagerService>();
 
-            if (sidmenuSerivce != null)
-            {
-                var menus = sidmenuSerivce.GetMenuItems();
-                menuList.ItemsSource = menus;
-                menuList.SelectedItem = menus.FirstOrDefault();
-            }
+            //if (sidmenuSerivce != null)
+            //{
+            //    var menus = sidmenuSerivce.GetMenuItems();
+            //    menuList.ItemsSource = menus;
+            //    menuList.SelectedItem = menus.FirstOrDefault();
+            //}
 
             //WeakReferenceMessenger.Default.Register<SideMenuAddMessage>(this, (r, m) =>
             //{
