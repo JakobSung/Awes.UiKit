@@ -1,4 +1,4 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36401.2
@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Awes.UiKit.OpenSilver.Sampl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Awes.UiKit.OpenSilver.Sample", "Awes.UiKit.OpenSilver.Sample\Awes.UiKit.OpenSilver.Sample\Awes.UiKit.OpenSilver.Sample.csproj", "{A8452628-FE1F-4158-9BA0-67543763D6DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Awes.UiKit", "Awes.UiKit\Awes.UiKit\Awes.UiKit.csproj", "{CB15A103-2E55-4C6C-8D84-D03ED504231B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Awes.UiKit.Core", "Awes.UiKit.Core\\Awes.UiKit.Core\\Awes.UiKit.Core.csproj", "{CB15A103-2E55-4C6C-8D84-D03ED504231B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Awes.UiKit.Wpf", "Awes.UiKit.Wpf\Awes.UiKit.Wpf.csproj", "{4984E61A-A0A3-484C-9341-153E592AC2D8}"
 EndProject
@@ -60,3 +60,4 @@ Global
 		SolutionGuid = {F4B3575F-5CD4-4967-ADC3-3A87447B7E9B}
 	EndGlobalSection
 EndGlobal
+
