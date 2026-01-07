@@ -4,6 +4,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+// using Awes.UiKit.Service;
 
 namespace Awes.UiKit.Wpf
 {
@@ -56,6 +57,7 @@ namespace Awes.UiKit.Wpf
 
         public WPFHostBuilder ConfigureServices(Action<IServiceCollection> action)
         {
+            // this.Services.AddSingleton<SideMenuLayoutManagerService>();
             action.Invoke(this.Services);
             return this;
         }
