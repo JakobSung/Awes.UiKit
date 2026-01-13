@@ -1,23 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System;
 
 namespace Awes.UiKit
 {
-    public class AwesUiKit
+    public static class AwesUiKit
     {
-        private static IServiceProvider? ServiceProvider { get; set; } = null;
+        private static IServiceProvider? _serviceProvider;
+        private static IServiceCollection? _services;
 
-        public static void RegistServiceProvdier(IServiceProvider provider)
+        /// <summary>
+        /// 서비스 컬렉션을 직접 설정합니다 (초기 부트스트랩용)
+        /// </summary>
+        public static void SetServices(IServiceCollection services)
         {
-            ServiceProvider = provider;
+            _services = services ?? throw new ArgumentNullException(nameof(services));
         }
 
-        public static IServiceProvider? GetServiceProvider()
+        /// <summary>
+        /// 서비스 프로바이더를 서비스 컬렉션과 함께 등록합니다
+        /// </summary>
+        public static void RegisterServiceProvider(IServiceProvider provider, IServiceCollection services)
         {
-            return ServiceProvider;
+            _services = services;
+            _serviceProvider = provider;
+        }
+
+        /// <summary>
+        /// 서비스 프로바이더를 가져옵니다
+        /// </summary>
+        public static IServiceProvider GetServiceProvider()
+        {
+            return _serviceProvider ?? throw new InvalidOperationException("ServiceProvider not registered. Call RegisterServiceProvider() first.");
         }
     }
 }

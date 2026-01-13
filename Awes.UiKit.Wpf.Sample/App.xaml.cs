@@ -26,6 +26,7 @@ namespace Awes.UiKit.Wpf.Sample
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
+          
         }
 
 
