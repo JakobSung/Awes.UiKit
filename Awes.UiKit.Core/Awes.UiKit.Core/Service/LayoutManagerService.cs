@@ -1,9 +1,4 @@
-using Awes.UiKit.Message;
 using Awes.UiKit.Model;
-using Awes.UiKit;
-using Microsoft.Extensions.DependencyInjection;
-using CommunityToolkit.Mvvm.Messaging;
-using System;
 using System.Collections.ObjectModel;
 using System.Windows;
 
@@ -29,18 +24,12 @@ namespace Awes.UiKit.Service
             MenuItem menu = new MenuItem(header, v);
             _menuItems.Add(menu);
 
-            WeakReferenceMessenger.Default.Send(new SideMenuAddMessage
-            {
-                Message = menu
-            });
+            
         }
 
         public virtual void Navigate(string header)
         {
-            WeakReferenceMessenger.Default.Send(new SideMenuNavigateMessage
-            {
-                Header = header
-            });
+            
         }
     }
 

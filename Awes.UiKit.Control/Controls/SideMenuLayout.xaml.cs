@@ -1,37 +1,40 @@
-Ôªøusing Awes.UiKit.Interface;
+using Awes.UiKit.Model;
+using CommunityToolkit.Mvvm.Messaging;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-//using Microsoft.Extensions.DependencyInjection;
 
-namespace Awes.UiKit.Controls
+namespace Awes.UiKit.Control
 {
     /// <summary>
-    /// SideMenuLayout.xamlÏóê ÎåÄÌïú ÏÉÅÌò∏ ÏûëÏö© ÎÖºÎ¶¨
+    /// SideMenuLayout.xamlø° ¥Î«— ªÛ»£ ¿€øÎ ≥Ì∏Æ
+    /// OpenSilverøÕ WPFø°º≠ ∞¯≈Î¿∏∑Œ ªÁøÎ ∞°¥…«— ƒ¡∆Æ∑—
     /// </summary>
     public partial class SideMenuLayout : UserControl
     {
-        public static readonly DependencyProperty MenuItemTemplateProperty = DependencyProperty.Register("MenuItemTemplate", typeof(DataTemplate), typeof(SideMenuLayout),
-           new PropertyMetadata(OnChangedItemTemplate));
+        public static readonly DependencyProperty MenuItemTemplateProperty = DependencyProperty.Register(
+            "MenuItemTemplate", 
+            typeof(DataTemplate), 
+            typeof(SideMenuLayout),
+            new PropertyMetadata(OnChangedItemTemplate));
 
-        public static readonly DependencyProperty MenuItemListBoxItemContainerStyleProperty = DependencyProperty.Register("MenuItemListBoxItemContainerStyle", typeof(Style), typeof(SideMenuLayout),
+        public static readonly DependencyProperty MenuItemListBoxItemContainerStyleProperty = DependencyProperty.Register(
+            "MenuItemListBoxItemContainerStyle", 
+            typeof(Style), 
+            typeof(SideMenuLayout),
             new PropertyMetadata(OnChangedItemContainerStyle));
 
-        public static readonly DependencyProperty MenuFooterProperty = DependencyProperty.Register("MenuFooter", typeof(object), typeof(SideMenuLayout),
-            new PropertyMetadata(OnchagedFooter));
+        public static readonly DependencyProperty MenuFooterProperty = DependencyProperty.Register(
+            "MenuFooter", 
+            typeof(object), 
+            typeof(SideMenuLayout),
+            new PropertyMetadata(OnChangedFooter));
 
-        public static readonly DependencyProperty MenuHeaderProperty = DependencyProperty.Register("MenuHeader", typeof(object), typeof(SideMenuLayout),
+        public static readonly DependencyProperty MenuHeaderProperty = DependencyProperty.Register(
+            "MenuHeader", 
+            typeof(object), 
+            typeof(SideMenuLayout),
             new PropertyMetadata(OnChangedHeader));
 
         public object MenuFooter
@@ -57,7 +60,8 @@ namespace Awes.UiKit.Controls
             get => (Style)GetValue(MenuItemListBoxItemContainerStyleProperty);
             set => SetValue(MenuItemListBoxItemContainerStyleProperty, value);
         }
-        private static void OnchagedFooter(DependencyObject d, DependencyPropertyChangedEventArgs e)
+
+        private static void OnChangedFooter(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             ((SideMenuLayout)d).ChangedFooter(e.NewValue);
         }
@@ -69,12 +73,12 @@ namespace Awes.UiKit.Controls
 
         private static void OnChangedItemContainerStyle(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            ((SideMenuLayout)d).ChangeItemContainerStyle((Style)e.NewValue);
+            ((SideMenuLayout)d).ChangeItemContainerStyle((Style?)e.NewValue);
         }
 
         private static void OnChangedItemTemplate(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            ((SideMenuLayout)d).ChangeItemTemplate((DataTemplate)e.NewValue);
+            ((SideMenuLayout)d).ChangeItemTemplate((DataTemplate?)e.NewValue);
         }
 
         public SideMenuLayout()
@@ -88,27 +92,29 @@ namespace Awes.UiKit.Controls
             SetTemplate(MenuItemTemplate);
             SetItemContainerStyle(MenuItemListBoxItemContainerStyle);
 
-            //IMenuManagerService? sidmenuSerivce = AwesUiKit.GetServiceProvider().GetService<IMenuManagerService>();
+            var serviceProvider = AwesUiKit.GetServiceProvider();
+            if (serviceProvider != null)
+            {
+                try
+                {
+                    var layoutService = serviceProvider.GetService(typeof(Service.ILayoutManagerService)) as Service.ILayoutManagerService;
 
-            //if (sidmenuSerivce != null)
-            //{
-            //    var menus = sidmenuSerivce.GetMenuItems();
-            //    menuList.ItemsSource = menus;
-            //    menuList.SelectedItem = menus.FirstOrDefault();
-            //}
-
-            //WeakReferenceMessenger.Default.Register<SideMenuAddMessage>(this, (r, m) =>
-            //{
-            //    menuList.Items.Add((IMenuItem)m);
-            //});
-
-            //WeakReferenceMessenger.Default.Register<SideMenuNavigateMessage>(this, (r, m) =>
-            //{
-            //    menuList.SelectedItem = menuList.Items.FirstOrDefault(o => ((IMenuItem)o).Header == m.Header);
-            //});
+                    if (layoutService != null)
+                    {
+                        var menus = layoutService.GetMenuItems();
+                        menuList.ItemsSource = menus;
+                        menuList.SelectedItem = menus.FirstOrDefault();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex; 
+                }
+                
+            }
         }
 
-        private void SetTemplate(DataTemplate dt)
+        private void SetTemplate(DataTemplate? dt)
         {
             if (dt != null)
             {
@@ -120,7 +126,7 @@ namespace Awes.UiKit.Controls
             }
         }
 
-        private void SetItemContainerStyle(Style style)
+        private void SetItemContainerStyle(Style? style)
         {
             if (style != null)
             {
@@ -132,25 +138,24 @@ namespace Awes.UiKit.Controls
             }
         }
 
-        private void ChangeItemTemplate(DataTemplate newValue)
+        private void ChangeItemTemplate(DataTemplate? newValue)
         {
             SetTemplate(newValue);
         }
 
-        private void ChangeItemContainerStyle(Style newValue)
+        private void ChangeItemContainerStyle(Style? newValue)
         {
             SetItemContainerStyle(newValue);
         }
 
-        private void ChangedFooter(object newValue)
+        private void ChangedFooter(object? newValue)
         {
             footer.Content = newValue;
         }
 
-        private void ChangeMenuHeader(object newValue)
+        private void ChangeMenuHeader(object? newValue)
         {
             header.Content = newValue;
         }
-
     }
 }

@@ -23,9 +23,8 @@ namespace Awes.UiKit.OpenSilver.Builder
         {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<TApp>("#app");
-            AwesUiKit.SetServices(builder.Services);
             var host = builder.Build();
-            AwesUiKit.RegisterServiceProvider(host.Services, builder.Services);
+            AwesUiKit.RegisterServiceProvider(host.Services);
             return host;            
         }
     }

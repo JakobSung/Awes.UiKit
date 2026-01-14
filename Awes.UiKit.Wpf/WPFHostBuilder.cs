@@ -65,6 +65,7 @@ namespace Awes.UiKit.Wpf
         public WpfHost Build()
         {
             var serviceProvider = _services.BuildServiceProvider();
+            AwesUiKit.RegisterServiceProvider(serviceProvider);
             _host.Initialize(serviceProvider);
             return _host;
         }

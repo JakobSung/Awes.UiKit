@@ -1,0 +1,55 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net10.0-windows</TargetFrameworks>
+    <EnableDefaultItems>false</EnableDefaultItems>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <!-- NuGet metadata -->
+    <PackageId>Awes.UiKit.Control</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>Awes</Authors>
+    <Company>Awes</Company>
+    <Description>Shared UI Controls for OpenSilver and WPF: SideMenuLayout and common XAML controls.</Description>
+    <PackageTags>opensilver;wpf;ui;controls;xaml;shared;sidemenu</PackageTags>
+    <RepositoryUrl>https://github.com/JakobSung/Awes.UiKit</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageProjectUrl>https://github.com/JakobSung/Awes.UiKit</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <DefineSilverlight>true</DefineSilverlight>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net10.0-windows'">
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="OpenSilver" Version="3.2.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Awes.UiKit.Core\Awes.UiKit.Core\Awes.UiKit.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Controls\SideMenuLayout.xaml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Include="Controls\SideMenuLayout.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+
+</Project>

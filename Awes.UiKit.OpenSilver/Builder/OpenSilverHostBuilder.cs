@@ -51,7 +51,7 @@ namespace Awes.UiKit.OpenSilver.Builder
             }
 
             var serviceProvider = _services.BuildServiceProvider();
-            AwesUiKit.RegisterServiceProvider(serviceProvider, _services);
+            AwesUiKit.RegisterServiceProvider(serviceProvider);
             var mainPage = (FrameworkElement)serviceProvider.GetRequiredService(_mainPageType);
             Window.Current.Content = mainPage;
         }
@@ -63,7 +63,6 @@ namespace Awes.UiKit.OpenSilver.Builder
         {
             var services = new ServiceCollection();
             services.AddAwesUiKitServices();
-            AwesUiKit.SetServices(services);
             return new OpenSilverHostBuilder(services);
         }
 
