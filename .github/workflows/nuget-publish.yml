@@ -40,7 +40,7 @@ jobs:
           dotnet build Awes.UiKit.Wpf/Awes.UiKit.Wpf.csproj -c Release --no-restore
 
       - name: Pack
-        # csproj에 GeneratePackageOnBuild=true 설정되어 있으므로 build로 생성되지만, 재확보용으로 pack 수행
+        # Since GeneratePackageOnBuild=true is set in the csproj, the package is created during build, but we run pack again to be sure.
         run: |
           dotnet pack Awes.UiKit.OpenSilver/Awes.UiKit.OpenSilver.csproj -c Release --no-build -o ./artifacts
           dotnet pack Awes.UiKit.Wpf/Awes.UiKit.Wpf.csproj -c Release --no-build -o ./artifacts
