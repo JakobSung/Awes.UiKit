@@ -36,6 +36,9 @@ jobs:
         with:
           dotnet-version: '10.0.x'
 
+      - name: Build ${{ matrix.package.name }}
+        run: dotnet build ${{ matrix.package.path }} -c Release
+
       - name: Pack ${{ matrix.package.name }}
         # Use the version provided when manually running the workflow
         run: dotnet pack ${{ matrix.package.path }} -c Release -o ./artifacts /p:Version=${{ github.event.inputs.version }}
