@@ -54,6 +54,134 @@ dotnet add package Awes.UiKit.OpenSilver
 dotnet add package Awes.UiKit.Wpf
 ```
 
+## Quick Start
+
+### OpenSilver
+
+App startup (`App.xaml.cs`):
+
+```csharp
+using Awes.UiKit;
+using Awes.UiKit.OpenSilver.Builder;
+using Awes.UiKit.OpenSilver.Service;
+using Microsoft.Extensions.DependencyInjection;
+
+public sealed partial class App : Application
+{
+    public App()
+    {
+        this.InitializeComponent();
+
+        OpenSilverHostBuilder.CreateBuilder()
+            .ConfigureServices(services =>
+            {
+                services.AddSingleton<ILayoutManagerService, LayoutManagerService>();
+            })
+            .ConfigureStartPage<MainPage>()
+            .Build();
+    }
+}
+```
+
+Register menus (e.g., `MainPage.xaml.cs`):
+
+```csharp
+using Awes.UiKit;
+using Awes.UiKit.Service;
+
+public partial class MainPage : Page
+{
+    private bool _menuInitialized;
+
+    public MainPage()
+    {
+        InitializeComponent();
+        Loaded += Page_Loaded;
+    }
+
+    private void Page_Loaded(object sender, RoutedEventArgs e)
+    {
+        if (_menuInitialized)
+        {
+            return;
+        }
+
+        _menuInitialized = true;
+
+        var serviceProvider = AwesUiKit.GetServiceProvider();
+        var layoutService = serviceProvider?.GetService(typeof(ILayoutManagerService)) as ILayoutManagerService;
+
+        layoutService?.AddMenu("Dashboard", typeof(DashBoardView), typeof(TestViewModel));
+        layoutService?.AddMenu("Test", typeof(TestContentView), typeof(TestViewModel));
+    }
+}
+```
+
+More: `Awes.UiKit.OpenSilver/README.NuGet.md`
+
+### WPF
+
+App startup (`App.xaml.cs`):
+
+```csharp
+using Awes.UiKit;
+using Awes.UiKit.Wpf.Builder;
+using Awes.UiKit.Wpf.Service;
+using Microsoft.Extensions.DependencyInjection;
+
+public partial class App : Application
+{
+    public App()
+    {
+        this.InitializeComponent();
+
+        WpfHostBuilder.CreateBuilder()
+            .ConfigureServices(services =>
+            {
+                services.AddSingleton<ILayoutManagerService, LayoutManagerService>();
+            })
+            .ConfigureStartPage<MainPage>()
+            .Build();
+    }
+}
+```
+
+Register menus (e.g., `MainPage.xaml.cs`):
+
+```csharp
+using Awes.UiKit;
+using Awes.UiKit.Service;
+
+public partial class MainPage : Page
+{
+    private bool _menuInitialized;
+
+    public MainPage()
+    {
+        InitializeComponent();
+        Loaded += Page_Loaded;
+    }
+
+    private void Page_Loaded(object sender, RoutedEventArgs e)
+    {
+        if (_menuInitialized)
+        {
+            return;
+        }
+
+        _menuInitialized = true;
+
+        var serviceProvider = AwesUiKit.GetServiceProvider();
+        var layoutService = serviceProvider?.GetService(typeof(ILayoutManagerService)) as ILayoutManagerService;
+
+        layoutService?.AddMenu("Dashboard", typeof(DashBoardView), typeof(TestViewModel));
+        layoutService?.AddMenu("Test", typeof(TestContentView), typeof(TestViewModel));
+    }
+}
+```
+
+More: `Awes.UiKit.Wpf/README.NuGet.md`
+
 ## License
 
 MIT. See `LICENSE`.
