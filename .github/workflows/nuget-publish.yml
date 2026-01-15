@@ -1,71 +1,72 @@
-name: Publish NuGet (Awes.UiKit)
+# .github/workflows/nuget-publish.yml
+
+name: Manual Publish NuGet Packages
 
 on:
-  push:
-    branches: [ master ]
-    paths:
-      - 'Awes.UiKit.OpenSilver/**'
-      - 'Awes.UiKit.Wpf/**'
-      - 'Awes.UiKit.Control/**'
-      - 'Awes.UiKit.Core/**'
-      - 'README.md'
-      - '.github/workflows/nuget-publish.yml'
-  workflow_dispatch: {}
+  # 'master' branch push trigger is disabled. To enable, uncomment the lines below.
+  # push:
+  #   branches: [ master ]
+
+  # Manual trigger with version input
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'NuGet Package Version (e.g., 1.0.0)'
+        required: true
+        default: '1.0.0'
 
 jobs:
-  pack-opensilver:
-    runs-on: ubuntu-latest
+  build_and_pack:
+    strategy:
+      matrix:
+        package:
+          - name: Awes.UiKit.OpenSilver
+            path: ./Awes.UiKit.OpenSilver/Awes.UiKit.OpenSilver.csproj
+            runner: ubuntu-latest
+          - name: Awes.UiKit.Wpf
+            path: ./Awes.UiKit.Wpf/Awes.UiKit.Wpf.csproj
+            runner: windows-latest
+    runs-on: ${{ matrix.package.runner }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Setup .NET SDK
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '10.0.x'
-      - name: Pack OpenSilver
-        run: dotnet pack Awes.UiKit.OpenSilver/Awes.UiKit.OpenSilver.csproj -c Release -o ./artifacts
-      - name: Upload OpenSilver Artifact
+
+      - name: Pack ${{ matrix.package.name }}
+        # Use the version provided when manually running the workflow
+        run: dotnet pack ${{ matrix.package.path }} -c Release -o ./artifacts /p:Version=${{ github.event.inputs.version }}
+
+      - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: nuget-opensilver
+          name: nuget-${{ matrix.package.name }}
           path: artifacts/*.nupkg
 
-  pack-wpf:
-    runs-on: windows-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup .NET SDK
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: '10.0.x'
-      - name: Pack WPF
-        run: dotnet pack Awes.UiKit.Wpf/Awes.UiKit.Wpf.csproj -c Release -o ./artifacts
-      - name: Upload WPF Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: nuget-wpf
-          path: artifacts/*.nupkg
-
-  publish-to-nuget:
-    needs: [pack-opensilver, pack-wpf]
+  publish:
+    needs: build_and_pack
     runs-on: ubuntu-latest
+    # This job only runs on manual trigger
+    if: github.event_name == 'workflow_dispatch'
     steps:
       - name: Download all artifacts
         uses: actions/download-artifact@v4
         with:
           path: ./artifacts
+          pattern: nuget-*
+          merge-multiple: true
+
       - name: List downloaded artifacts
         run: ls -alR ./artifacts
+
       - name: Publish to NuGet
-        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
         env:
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
         run: |
-          for pkg in artifacts/**/*.nupkg; do
-            echo "Pushing $pkg";
-            dotnet nuget push "$pkg" \
-              --api-key "$NUGET_API_KEY" \
-              --source https://api.nuget.org/v3/index.json \
-              --skip-duplicate || exit 1;
-          done
+          dotnet nuget push "artifacts/**/*.nupkg" \
+            --api-key "$NUGET_API_KEY" \
+            --source https://api.nuget.org/v3/index.json \
+            --skip-duplicate
