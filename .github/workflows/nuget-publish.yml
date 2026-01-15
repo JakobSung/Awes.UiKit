@@ -22,7 +22,7 @@ jobs:
         package:
           - name: Awes.UiKit.OpenSilver
             path: ./Awes.UiKit.OpenSilver/Awes.UiKit.OpenSilver.csproj
-            runner: ubuntu-latest
+            runner: windows-latest
           - name: Awes.UiKit.Wpf
             path: ./Awes.UiKit.Wpf/Awes.UiKit.Wpf.csproj
             runner: windows-latest
