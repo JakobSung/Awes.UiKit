@@ -15,7 +15,6 @@ Minimal UI Kit for **OpenSilver** and **WPF**.
 OpenSilver integration and hosting layer.
 
 - Targets: `netstandard2.0`, `net10.0`
-- Includes OpenSilver host builders and OpenSilver-specific services
 
 See: `Awes.UiKit.OpenSilver/README.NuGet.md`
 
@@ -24,7 +23,6 @@ See: `Awes.UiKit.OpenSilver/README.NuGet.md`
 WPF integration and hosting layer.
 
 - Target: `net10.0-windows`
-- Includes `WPFHostBuilder` and WPF-specific services
 
 See: `Awes.UiKit.Wpf/README.NuGet.md`
 
@@ -41,11 +39,6 @@ Or:
 dotnet add package Awes.UiKit.OpenSilver
 dotnet add package Awes.UiKit.Wpf
 ```
-
-## Samples
-
-- OpenSilver sample: `Awes.UiKit.OpenSilver.Sample`
-- WPF sample: `Awes.UiKit.Wpf.Sample`
 
 ## License
 
