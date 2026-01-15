@@ -1,5 +1,6 @@
 using Awes.UiKit.Model;
-using CommunityToolkit.Mvvm.Messaging;
+using Awes.UiKit;
+using Awes.UiKit.Service;
 using System;
 using System.Linq;
 using System.Windows;
@@ -97,7 +98,7 @@ namespace Awes.UiKit.Control
             {
                 try
                 {
-                    var layoutService = serviceProvider.GetService(typeof(Service.ILayoutManagerService)) as Service.ILayoutManagerService;
+                    var layoutService = serviceProvider.GetService(typeof(ILayoutManagerService)) as ILayoutManagerService;
 
                     if (layoutService != null)
                     {
@@ -106,9 +107,9 @@ namespace Awes.UiKit.Control
                         menuList.SelectedItem = menus.FirstOrDefault();
                     }
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    throw ex; 
+                    throw; 
                 }
                 
             }

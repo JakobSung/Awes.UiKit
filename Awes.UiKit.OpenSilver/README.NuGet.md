@@ -1,20 +1,20 @@
 # Awes.UiKit.OpenSilver
 
-
-
-
 [![NuGet Version](https://img.shields.io/nuget/v/Awes.UiKit.OpenSilver.svg)](https://www.nuget.org/packages/Awes.UiKit.OpenSilver/)
+[![NuGet Downloads](https://img.shields.io/nuget/dt/Awes.UiKit.OpenSilver.svg)](https://www.nuget.org/packages/Awes.UiKit.OpenSilver/)
 [![Build Status](https://github.com/JakobSung/Awes.UiKit/actions/workflows/nuget-publish.yml/badge.svg)](https://github.com/JakobSung/Awes.UiKit/actions/workflows/nuget-publish.yml)
 
-Minimal UI Kit for OpenSilver (netstandard2.0, net9.0)
+Minimal integration layer for **OpenSilver** applications.
 
-## Features
-- Side menu layout (ListBox + content region)
-- LayoutManagerService (menu registration + navigation broadcast)
-- DI helpers for OpenSilver apps
+- Targets: `netstandard2.0`, `net10.0`
+- Provides hosting builders for OpenSilver and Blazor WebAssembly
+- Integrates with the layout manager and menu system from `Awes.UiKit.Core`
+
+> This package focuses on OpenSilver hosting, DI integration, and services.
 
 ## Install
-```
+
+```powershell
 PM> Install-Package Awes.UiKit.OpenSilver
 # or
 > dotnet add package Awes.UiKit.OpenSilver
@@ -22,9 +22,12 @@ PM> Install-Package Awes.UiKit.OpenSilver
 
 ## Quick Start
 
-### net9 (Blazor WebAssembly + OpenSilver)
+### 1. Blazor WebAssembly + OpenSilver (net10.0)
+
 ```csharp
+using Awes.UiKit;
 using Awes.UiKit.OpenSilver.Builder;
+using Awes.UiKit.OpenSilver.Service;
 using Microsoft.Extensions.DependencyInjection;
 
 public class Program
@@ -32,49 +35,95 @@ public class Program
     public static async Task Main(string[] args)
     {
         // Create default WASM host with root component
-        var kit = AwesUiKitWasmHostBuilder.CreateHost<App>(args);
+        var kit = OpenSilverWasmHostBuilder.CreateHost<App>(args);
 
-        // Register app-specific services (Views / ViewModels etc.)
+        // Register UI Kit services and app-specific services
         kit.ConfigureServices(services =>
         {
+            services.AddSingleton<ILayoutManagerService, LayoutManagerService>();
+
             services.AddScoped<DashBoardView>();
             services.AddScoped<TestContentView>();
             services.AddScoped<TestViewModel>();
         });
 
-        // Build host and initialize global ServiceProvider
         var host = kit.Build();
         await host.RunAsync();
     }
 }
 ```
 
-### netstandard2.0
+### 2. OpenSilver application startup (App.xaml.cs)
+
 ```csharp
+using Awes.UiKit;
+using Awes.UiKit.OpenSilver.Builder;
 using Awes.UiKit.OpenSilver.Service;
 using Microsoft.Extensions.DependencyInjection;
 
-var services = new ServiceCollection();
-// Register required services for UI Kit
-services.AddSingleton<ILayoutManagerService, LayoutManagerService>();
+public sealed partial class App : Application
+{
+    public App()
+    {
+        this.InitializeComponent();
 
-// App-specific registrations
-services.AddScoped<DashBoardView>();
-services.AddScoped<TestContentView>();
-services.AddScoped<TestViewModel>();
+        OpenSilverHostBuilder.CreateBuilder()
+            .ConfigureServices(services =>
+            {
+                services.AddSingleton<ILayoutManagerService, LayoutManagerService>();
 
-var provider = services.BuildServiceProvider();
-// var layout = provider.GetRequiredService<ILayoutManagerService>();
+                services.AddScoped<DashBoardView>();
+                services.AddScoped<TestContentView>();
+                services.AddScoped<TestViewModel>();
+            })
+            .ConfigureStartPage<MainPage>()
+            .Build();
+    }
+}
 ```
 
-In XAML host page, place your side menu layout control and bind menu items.
+### 3. Register menus in your page
+
+```csharp
+using Awes.UiKit;
+using Awes.UiKit.Service;
+
+public partial class MainPage : Page
+{
+    private bool _menuInitialized;
+
+    public MainPage()
+    {
+        InitializeComponent();
+        Loaded += Page_Loaded;
+    }
+
+    private void Page_Loaded(object sender, RoutedEventArgs e)
+    {
+        if (_menuInitialized)
+        {
+            return;
+        }
+
+        _menuInitialized = true;
+
+        var serviceProvider = AwesUiKit.GetServiceProvider();
+        var layoutService = serviceProvider?.GetService(typeof(ILayoutManagerService)) as ILayoutManagerService;
+
+        layoutService?.AddMenu("Dashboard", typeof(DashBoardView), typeof(TestViewModel));
+        layoutService?.AddMenu("Test", typeof(TestContentView), typeof(TestViewModel));
+    }
+}
+```
 
 ## Dependencies
+
 - OpenSilver 3.x
 - Microsoft.Extensions.DependencyInjection
-- CommunityToolkit.Mvvm (messaging)
+- Awes.UiKit.Core
 
 ## License
+
 MIT
 
 Source & issues: https://github.com/JakobSung/Awes.UiKit

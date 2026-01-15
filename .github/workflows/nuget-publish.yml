@@ -1,10 +1,13 @@
-name: Publish NuGet (Awes.UiKit.OpenSilver)
+name: Publish NuGet
 
 on:
   push:
     branches: [ master ]
     paths:
       - 'Awes.UiKit.OpenSilver/**'
+      - 'Awes.UiKit.Wpf/**'
+      - 'Awes.UiKit.Control/**'
+      - 'Awes.UiKit.Core/**'
       - '.github/workflows/nuget-publish.yml'
   workflow_dispatch: {}
 
@@ -23,13 +26,17 @@ jobs:
       - name: Setup .NET SDK
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '9.0.x'
+          dotnet-version: '10.0.x'
 
       - name: Restore
-        run: dotnet restore Awes.UiKit.OpenSilver/Awes.UiKit.OpenSilver.csproj
+        run: |
+          dotnet restore Awes.UiKit.OpenSilver/Awes.UiKit.OpenSilver.csproj
+          dotnet restore Awes.UiKit.Wpf/Awes.UiKit.Wpf.csproj
 
       - name: Build (Release)
-        run: dotnet build Awes.UiKit.OpenSilver/Awes.UiKit.OpenSilver.csproj -c Release --no-restore
+        run: |
+          dotnet build Awes.UiKit.OpenSilver/Awes.UiKit.OpenSilver.csproj -c Release --no-restore
+          dotnet build Awes.UiKit.Wpf/Awes.UiKit.Wpf.csproj -c Release --no-restore
 
       - name: Pack
         # csproj에 GeneratePackageOnBuild=true 설정되어 있으므로 build로 생성되지만, 재확보용으로 pack 수행

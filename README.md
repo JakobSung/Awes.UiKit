@@ -1,54 +1,52 @@
 
- 
-# Awes.UiKit NuGet Packages
+# Awes.UiKit
 
-This project consists of 3 core NuGet packages. Sample projects are excluded from distribution and documentation.
+| Package | NuGet | Downloads | Build |
+|--------|-------|-----------|-------|
+| Awes.UiKit.OpenSilver | [![NuGet Version](https://img.shields.io/nuget/v/Awes.UiKit.OpenSilver.svg)](https://www.nuget.org/packages/Awes.UiKit.OpenSilver/) | [![NuGet Downloads](https://img.shields.io/nuget/dt/Awes.UiKit.OpenSilver.svg)](https://www.nuget.org/packages/Awes.UiKit.OpenSilver/) | [![Build Status](https://github.com/JakobSung/Awes.UiKit/actions/workflows/nuget-publish.yml/badge.svg)](https://github.com/JakobSung/Awes.UiKit/actions/workflows/nuget-publish.yml) |
+| Awes.UiKit.Wpf | [![NuGet Version](https://img.shields.io/nuget/v/Awes.UiKit.Wpf.svg)](https://www.nuget.org/packages/Awes.UiKit.Wpf/) | [![NuGet Downloads](https://img.shields.io/nuget/dt/Awes.UiKit.Wpf.svg)](https://www.nuget.org/packages/Awes.UiKit.Wpf/) | [![Build Status](https://github.com/JakobSung/Awes.UiKit/actions/workflows/nuget-publish.yml/badge.svg)](https://github.com/JakobSung/Awes.UiKit/actions/workflows/nuget-publish.yml) |
 
-## Core Packages
+Minimal UI Kit for **OpenSilver** and **WPF**.
 
-### 1. AwesUiKit.Core
-- Core library providing essential UI Kit functionality
-- Includes various UI components and extension features
-- Supports .NET 10 and .NET Standard 2.0
+## Packages
 
-### 2. Awes.UiKit.OpenSilver
-- OpenSilver-based WebAssembly UI components
-- Compatible with Web and WASM environments
-- Supports .NET 10 and .NET Standard 2.0
+### Awes.UiKit.OpenSilver
 
-### 3. Awes.UiKit.Wpf
-- UI Kit designed for WPF environments
-- Optimized for desktop applications
-- Supports .NET 10 and .NET Standard 2.0
+OpenSilver integration and hosting layer.
 
-## Installation
+- Targets: `netstandard2.0`, `net10.0`
+- Includes OpenSilver host builders and OpenSilver-specific services
 
-Install via NuGet Package Manager:
+See: `Awes.UiKit.OpenSilver/README.NuGet.md`
 
-```
-Install-Package AwesUiKit.Core
-Install-Package Awes.UiKit.OpenSilver
-Install-Package Awes.UiKit.Wpf
-```
+### Awes.UiKit.Wpf
 
-Or add directly to your .csproj file:
-```
-<PackageReference Include="AwesUiKit.Core" />
-<PackageReference Include="Awes.UiKit.OpenSilver" />
-<PackageReference Include="Awes.UiKit.Wpf" />
+WPF integration and hosting layer.
+
+- Target: `net10.0-windows`
+- Includes `WPFHostBuilder` and WPF-specific services
+
+See: `Awes.UiKit.Wpf/README.NuGet.md`
+
+## Install
+
+```powershell
+PM> Install-Package Awes.UiKit.OpenSilver
+PM> Install-Package Awes.UiKit.Wpf
 ```
 
-## Supported Frameworks
+Or:
 
-- .NET 10 (Latest)
-- .NET Standard 2.0 (Compatible)
+```powershell
+dotnet add package Awes.UiKit.OpenSilver
+dotnet add package Awes.UiKit.Wpf
+```
 
-## Features
+## Samples
 
-- Common UI components and extension utilities
-- WebAssembly (OpenSilver) and WPF desktop support
-- Independent module usage
+- OpenSilver sample: `Awes.UiKit.OpenSilver.Sample`
+- WPF sample: `Awes.UiKit.Wpf.Sample`
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+MIT. See `LICENSE`.
