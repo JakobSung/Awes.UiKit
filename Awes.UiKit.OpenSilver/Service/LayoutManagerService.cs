@@ -1,5 +1,5 @@
-﻿using Awes.UiKit.OpenSilver.Message;
-using Awes.UiKit.OpenSilver.Model;
+﻿using Awes.UiKit.Message;
+using Awes.UiKit.Model;
 using CommunityToolkit.Mvvm.Messaging;
 using System;
 using System.Collections.Generic;
