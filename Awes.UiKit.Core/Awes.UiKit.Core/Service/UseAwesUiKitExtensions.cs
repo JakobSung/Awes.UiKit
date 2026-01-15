@@ -1,18 +1,13 @@
 #if NET10_0
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 #endif
+using Awes.UiKit.Service;
 using Microsoft.Extensions.DependencyInjection;
-using Awes.UiKit.OpenSilver.Service;
 
-namespace Awes.UiKit.OpenSilver
+namespace Awes.UiKit
 {
     public static class UseAwesUiKitExtensions
     {
-        /// <summary>
-        /// 필수 Awes.UiKit 서비스 등록 (netstandard2.0 호환)
-        /// </summary>
-        /// <param name="services">The service collection.</param>
-        /// <returns>The service collection.</returns>
         public static IServiceCollection AddAwesUiKitServices(this IServiceCollection services)
         {
             services.AddSingleton<ILayoutManagerService, LayoutManagerService>();
@@ -20,11 +15,6 @@ namespace Awes.UiKit.OpenSilver
         }
 
 #if NET10_0
-        /// <summary>
-        /// WebAssembly 호스트 빌더용 확장 메서드 (NET10_0)
-        /// </summary>
-        /// <param name="builder">The WebAssembly host builder.</param>
-        /// <returns>The WebAssembly host builder.</returns>
         public static WebAssemblyHostBuilder RegistRequireService(this WebAssemblyHostBuilder builder)
         {
             builder.Services.AddAwesUiKitServices();

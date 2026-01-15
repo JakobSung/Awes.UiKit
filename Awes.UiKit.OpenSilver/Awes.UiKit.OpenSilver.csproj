@@ -1,9 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net9.0</TargetFrameworks>
+    <TargetFrameworks>net6.0;net10.0</TargetFrameworks>
     <EnableDefaultItems>false</EnableDefaultItems>
     <DefineSilverlight>true</DefineSilverlight>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
     <!-- NuGet metadata -->
     <PackageId>Awes.UiKit.OpenSilver</PackageId>
     <Version>0.1.1</Version>
@@ -31,33 +34,28 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="AwesUiKit.cs" />
-    <Compile Include="Builder\AwesUiKitBuilder.cs" />
-    <Compile Include="Builder\AwesUiKitWasmHostBuilder.cs" />
-    <Compile Include="Layout\SideMenuLayout.xaml.cs" />
-    <Compile Include="Message\SideMenuLayoutMessage.cs" />
-    <Compile Include="Model\IMenuItem.cs" />
-    <Compile Include="Service\LayoutManagerService.cs" />
-    <Compile Include="Service\UseAwesUiKitExtensions.cs" />
+    <Compile Include="Builder\OpenSilverHostBuilder.cs" />
+    <Compile Include="Builder\OpenSilverWasmHostBuilder.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.8" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.8" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.0" />
     <PackageReference Include="OpenSilver" Version="3.2.2" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
   </ItemGroup>
 
-  <!-- Only needed when compiling for net9.0 to access WebAssemblyHostBuilder type -->
-  <ItemGroup Condition="'$(TargetFramework)' == 'net9.0'">
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="9.0.0" />
+  <ItemGroup>
+    <ProjectReference Include="..\Awes.UiKit.Core\Awes.UiKit.Core\Awes.UiKit.Core.csproj" />
+    <ProjectReference Include="..\Awes.UiKit.Control\Awes.UiKit.Control.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Page Include="Layout\SideMenuLayout.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
+
+  <!-- Only needed when compiling for net10.0 to access WebAssemblyHostBuilder type -->
+  <ItemGroup Condition="'$(TargetFramework)' == 'net10.0'">
+    <PackageReference Include="Microsoft.AspNetCore.Components" Version="10.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="10.0.0" />
   </ItemGroup>
 
 </Project>

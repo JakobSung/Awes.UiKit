@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Awes.UiKit
 
 | Package               | NuGet | Downloads | Build |
@@ -8,11 +9,23 @@
 **A UI Kit designed to accelerate modern .NET application development for OpenSilver and WPF.**
 
 This project aims to provide a streamlined development experience by integrating .NET's **Generic Host** for dependency injection, configuration, and service management, along with interactive UI components.
+=======
+
+# Awes.UiKit
+
+| Package | NuGet | Downloads | Build |
+|--------|-------|-----------|-------|
+| Awes.UiKit.OpenSilver | [![NuGet Version](https://img.shields.io/nuget/v/Awes.UiKit.OpenSilver.svg)](https://www.nuget.org/packages/Awes.UiKit.OpenSilver/) | [![NuGet Downloads](https://img.shields.io/nuget/dt/Awes.UiKit.OpenSilver.svg)](https://www.nuget.org/packages/Awes.UiKit.OpenSilver/) | [![Build Status](https://github.com/JakobSung/Awes.UiKit/actions/workflows/nuget-publish.yml/badge.svg)](https://github.com/JakobSung/Awes.UiKit/actions/workflows/nuget-publish.yml) |
+| Awes.UiKit.Wpf | [![NuGet Version](https://img.shields.io/nuget/v/Awes.UiKit.Wpf.svg)](https://www.nuget.org/packages/Awes.UiKit.Wpf/) | [![NuGet Downloads](https://img.shields.io/nuget/dt/Awes.UiKit.Wpf.svg)](https://www.nuget.org/packages/Awes.UiKit.Wpf/) | [![Build Status](https://github.com/JakobSung/Awes.UiKit/actions/workflows/nuget-publish.yml/badge.svg)](https://github.com/JakobSung/Awes.UiKit/actions/workflows/nuget-publish.yml) |
+
+Minimal UI Kit for **OpenSilver** and **WPF**.
+>>>>>>> c33d7e148fcf776ccfb13ad29818a495857897a7
 
 ## Packages
 
 ### Awes.UiKit.OpenSilver
 
+<<<<<<< HEAD
 Provides a hosting layer and services for **OpenSilver** applications, enabling a modern, DI-centric architecture.
 
 - **Targets**: `netstandard2.0`, `net10.0`
@@ -20,11 +33,17 @@ Provides a hosting layer and services for **OpenSilver** applications, enabling 
   - `OpenSilverHostBuilder` and `OpenSilverWasmHostBuilder` for easy setup.
   - Seamless integration with `Microsoft.Extensions.DependencyInjection`.
   - Manages application lifecycle and services through the Generic Host pattern.
+=======
+OpenSilver integration and hosting layer.
+
+- Targets: `netstandard2.0`, `net10.0`
+>>>>>>> c33d7e148fcf776ccfb13ad29818a495857897a7
 
 See: `Awes.UiKit.OpenSilver/README.NuGet.md`
 
 ### Awes.UiKit.Wpf
 
+<<<<<<< HEAD
 Provides a hosting layer and services for **WPF** desktop applications, bringing modern development practices to the desktop.
 
 - **Target**: `net10.0-windows`
@@ -42,12 +61,26 @@ See: `Awes.UiKit.Wpf/README.NuGet.md`
 
 ## Install
 
+=======
+WPF integration and hosting layer.
+
+- Target: `net10.0-windows`
+
+See: `Awes.UiKit.Wpf/README.NuGet.md`
+
+## Install
+
+>>>>>>> c33d7e148fcf776ccfb13ad29818a495857897a7
 ```powershell
 PM> Install-Package Awes.UiKit.OpenSilver
 PM> Install-Package Awes.UiKit.Wpf
 ```
 
+<<<<<<< HEAD
 Or use the .NET CLI:
+=======
+Or:
+>>>>>>> c33d7e148fcf776ccfb13ad29818a495857897a7
 
 ```powershell
 dotnet add package Awes.UiKit.OpenSilver

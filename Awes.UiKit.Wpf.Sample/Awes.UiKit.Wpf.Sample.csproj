@@ -4,14 +4,13 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net10.0-windows</TargetFramework>
     <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="OpenSilver.Simulator" Version="3.2.2" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Awes.UiKit.OpenSilver.Sample\Awes.UiKit.OpenSilver.Sample.csproj" />
+    <ProjectReference Include="..\Awes.UiKit.Wpf\Awes.UiKit.Wpf.csproj" />
   </ItemGroup>
 
 </Project>
