@@ -20,6 +20,12 @@ jobs:
     strategy:
       matrix:
         package:
+          - name: Awes.UiKit.Core
+            path: ./Awes.UiKit.Core/Awes.UiKit.Core/Awes.UiKit.Core.csproj
+            runner: windows-latest
+          - name: Awes.UiKit.Control
+            path: ./Awes.UiKit.Control/Awes.UiKit.Control.csproj
+            runner: windows-latest
           - name: Awes.UiKit.OpenSilver
             path: ./Awes.UiKit.OpenSilver/Awes.UiKit.OpenSilver.csproj
             runner: windows-latest

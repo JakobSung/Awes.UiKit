@@ -36,6 +36,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Awes.UiKit.Core" Version="0.1.0" Condition="'$(IsPacking)' == 'true'" />
+    <PackageReference Include="Awes.UiKit.Control" Version="0.1.0" Condition="'$(IsPacking)' == 'true'" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="README.NuGet.md" Pack="true" PackagePath="/" />
     <None Include="..\LICENSE" Pack="true" PackagePath="/" />
   </ItemGroup>

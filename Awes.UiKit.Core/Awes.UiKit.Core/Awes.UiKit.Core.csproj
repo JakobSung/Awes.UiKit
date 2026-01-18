@@ -5,6 +5,26 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <LangVersion>latest</LangVersion>
+
+    <!-- NuGet metadata -->
+    <PackageId>Awes.UiKit.Core</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>Awes</Authors>
+    <Company>Awes</Company>
+    <Description>Core services and abstractions for Awes.UiKit (layout manager, messaging, and shared infrastructure).</Description>
+    <PackageTags>ui;layout;menu;mvvm;opensilver;wpf;core</PackageTags>
+    <RepositoryUrl>https://github.com/JakobSung/Awes.UiKit</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageProjectUrl>https://github.com/JakobSung/Awes.UiKit</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.NuGet.md</PackageReadmeFile>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <Deterministic>true</Deterministic>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(TargetFramework)'=='net10.0-windows'">
@@ -16,6 +36,11 @@
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE" Pack="true" PackagePath="/" />
+    <None Include="README.NuGet.md" Pack="true" PackagePath="/" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)'=='net10.0-windows'">
