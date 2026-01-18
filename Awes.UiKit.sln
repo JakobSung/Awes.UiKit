@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Awes.UiKit.Wpf.Sample", "Aw
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Awes.UiKit.Control", "Awes.UiKit.Control\Awes.UiKit.Control.csproj", "{332E6F27-BB48-D2FF-E205-BE8C62DFB867}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Awes.UiKit.Wpf", "Awes.UiKit.Wpf\Awes.UiKit.Wpf.csproj", "{481E1F0F-1BFE-60A7-7018-34F8660B9090}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +101,18 @@ Global
 		{332E6F27-BB48-D2FF-E205-BE8C62DFB867}.Release|x64.Build.0 = Release|Any CPU
 		{332E6F27-BB48-D2FF-E205-BE8C62DFB867}.Release|x86.ActiveCfg = Release|Any CPU
 		{332E6F27-BB48-D2FF-E205-BE8C62DFB867}.Release|x86.Build.0 = Release|Any CPU
+		{481E1F0F-1BFE-60A7-7018-34F8660B9090}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{481E1F0F-1BFE-60A7-7018-34F8660B9090}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{481E1F0F-1BFE-60A7-7018-34F8660B9090}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{481E1F0F-1BFE-60A7-7018-34F8660B9090}.Debug|x64.Build.0 = Debug|Any CPU
+		{481E1F0F-1BFE-60A7-7018-34F8660B9090}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{481E1F0F-1BFE-60A7-7018-34F8660B9090}.Debug|x86.Build.0 = Debug|Any CPU
+		{481E1F0F-1BFE-60A7-7018-34F8660B9090}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{481E1F0F-1BFE-60A7-7018-34F8660B9090}.Release|Any CPU.Build.0 = Release|Any CPU
+		{481E1F0F-1BFE-60A7-7018-34F8660B9090}.Release|x64.ActiveCfg = Release|Any CPU
+		{481E1F0F-1BFE-60A7-7018-34F8660B9090}.Release|x64.Build.0 = Release|Any CPU
+		{481E1F0F-1BFE-60A7-7018-34F8660B9090}.Release|x86.ActiveCfg = Release|Any CPU
+		{481E1F0F-1BFE-60A7-7018-34F8660B9090}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
