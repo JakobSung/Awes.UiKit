@@ -58,7 +58,28 @@ dotnet add package Awes.UiKit.Wpf
 
 ### OpenSilver
 
-App startup (`App.xaml.cs`):
+openSilver Browser Project Blazor Program.cs
+
+```cshartp
+﻿using Awes.UiKit;
+using Awes.UiKit.OpenSilver.Builder;
+using Awes.UiKit.OpenSilver.Sample;
+using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using System;
+using System.Threading.Tasks;
+
+public class Program
+{
+    public static async Task Main(string[] args)
+    {
+        var host = OpenSilverWasmHostBuilder.CreateHost<App>(args);
+        await host.RunAsync();
+    }
+}
+
+```
+
+openSilver C# project App startup (`App.xaml.cs`):
 
 ```csharp
 using Awes.UiKit;
@@ -73,17 +94,19 @@ public sealed partial class App : Application
         this.InitializeComponent();
 
         OpenSilverHostBuilder.CreateBuilder()
-            .ConfigureServices(services =>
-            {
-                services.AddSingleton<ILayoutManagerService, LayoutManagerService>();
-            })
-            .ConfigureStartPage<MainPage>()
-            .Build();
+                    .ConfigureServices(services =>
+                    {
+                        services.AddScoped<DashBoardView>();
+                        services.AddScoped<TestContentView>();
+                        services.AddScoped<TestViewModel>();
+                    })
+                    .ConfigureStartPage<MainPage>()
+                    .Build();
     }
 }
 ```
 
-Register menus (e.g., `MainPage.xaml.cs`):
+Register menus (e.g., `openSilver C# project MainPage.xaml.cs`):
 
 ```csharp
 using Awes.UiKit;
@@ -91,8 +114,6 @@ using Awes.UiKit.Service;
 
 public partial class MainPage : Page
 {
-    private bool _menuInitialized;
-
     public MainPage()
     {
         InitializeComponent();
@@ -105,8 +126,6 @@ public partial class MainPage : Page
         {
             return;
         }
-
-        _menuInitialized = true;
 
         var serviceProvider = AwesUiKit.GetServiceProvider();
         var layoutService = serviceProvider?.GetService(typeof(ILayoutManagerService)) as ILayoutManagerService;
@@ -131,18 +150,18 @@ using Microsoft.Extensions.DependencyInjection;
 
 public partial class App : Application
 {
-    public App()
-    {
-        this.InitializeComponent();
+	public App()
+        {
+            WpfHost host = new WPFHostBuilder(this)
+                                    .ConfigureStartWindow<MainWindow>()
+                                    .ConfigureServices(services =>
+                                    {
+                                        //todo: add services and view,viewModels hear
+                                    })
+                                    .Build();
 
-        WpfHostBuilder.CreateBuilder()
-            .ConfigureServices(services =>
-            {
-                services.AddSingleton<ILayoutManagerService, LayoutManagerService>();
-            })
-            .ConfigureStartPage<MainPage>()
-            .Build();
-    }
+            Task.Run(async () => await host.RunAsync());
+        }
 }
 ```
 
@@ -154,8 +173,6 @@ using Awes.UiKit.Service;
 
 public partial class MainPage : Page
 {
-    private bool _menuInitialized;
-
     public MainPage()
     {
         InitializeComponent();
@@ -168,8 +185,6 @@ public partial class MainPage : Page
         {
             return;
         }
-
-        _menuInitialized = true;
 
         var serviceProvider = AwesUiKit.GetServiceProvider();
         var layoutService = serviceProvider?.GetService(typeof(ILayoutManagerService)) as ILayoutManagerService;
