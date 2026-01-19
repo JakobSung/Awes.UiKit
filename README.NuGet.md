@@ -15,15 +15,6 @@ PM> Install-Package Awes.UiKit.OpenSilver
 > dotnet add package Awes.UiKit.OpenSilver
 ```
 
-## Quick Start
-```csharp
-var services = new ServiceCollection();
-services.AddAwesUiKit();
-var provider = services.BuildServiceProvider();
-var layout = provider.GetRequiredService<ILayoutManagerService>();
-// layout.AddMenu("DashBoard", typeof(DashBoardView), typeof(DashBoardViewModel));
-```
-
 In XAML host page, place your side menu layout control and bind menu items.
 
 ## Dependencies
