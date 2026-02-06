@@ -16,7 +16,8 @@ namespace Awes.UiKit.Wpf
         private ServiceCollection _services = new ServiceCollection();
         private object? _mainVm = null;
 
-        private Type _mainWindowType = null;
+        private Type? _mainWindowType = null;
+        private Type? _mainVmType = null;
 
         public WPFHostBuilder(Application app)
         {
@@ -43,7 +44,16 @@ namespace Awes.UiKit.Wpf
             }
 
             _mainWindow ??= (Window)_host.Services.GetRequiredService(_mainWindowType);
-            _mainWindow.DataContext = _mainVm;
+            
+            if (_mainVmType != null)
+            {
+                _mainWindow.DataContext = _host.Services.GetRequiredService(_mainVmType);
+            }
+            else if (_mainVm != null)
+            {
+                _mainWindow.DataContext = _mainVm;
+            }
+            
             _mainWindow.Show();
         }
 
@@ -52,6 +62,19 @@ namespace Awes.UiKit.Wpf
             _mainWindowType = typeof(T);
             _services.AddTransient<T>();
             _mainVm = mainVm;
+            return this;
+        }
+
+        public WPFHostBuilder ConfigureStartWindow<TView, TViewModel>() 
+            where TView : Window 
+            where TViewModel : class
+        {
+            _mainWindowType = typeof(TView);
+            _mainVmType = typeof(TViewModel);
+
+            _services.AddTransient<TView>();
+            _services.AddTransient<TViewModel>();
+            
             return this;
         }
 

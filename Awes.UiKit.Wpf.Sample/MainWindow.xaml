@@ -9,5 +9,10 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <control:SideMenuLayout/>
+        <TextBlock Text="{Binding Greeting}" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Center" 
+                   FontSize="24"
+                   Foreground="Red"/>
     </Grid>
 </Window>

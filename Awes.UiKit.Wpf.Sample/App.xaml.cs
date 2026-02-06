@@ -13,7 +13,7 @@ namespace Awes.UiKit.Wpf.Sample
         public App()
         {
             WpfHost host = new WPFHostBuilder(this)
-                                    .ConfigureStartWindow<MainWindow>()
+                                    .ConfigureStartWindow<MainWindow, MainViewModel>()
                                     .ConfigureServices(services =>
                                     {
                                         //todo: add services here
