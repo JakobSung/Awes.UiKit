@@ -5,6 +5,7 @@
     <OpenSilverType>7</OpenSilverType>
     <PublishTrimmed>true</PublishTrimmed>
     <WasmEnableSIMD>false</WasmEnableSIMD>
+    <BlazorEnableCompression>false</BlazorEnableCompression>
     <!-- Uncomment to enable AOT compilation when publishing -->
     <!--<RunAOTCompilation>true</RunAOTCompilation>-->
   </PropertyGroup>

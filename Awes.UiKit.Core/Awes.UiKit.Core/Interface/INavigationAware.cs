@@ -11,7 +11,7 @@ namespace Awes.UiKit.Model
         /// 해당 화면으로 네비게이션 되었을 때 호출됩니다.
         /// </summary>
         /// <param name="parameter">전달된 파라미터</param>
-        /// <returns></returns>
+        /// <returns>태스크</returns>
         Task OnNavigatedToAsync(object? parameter);
     }
 }

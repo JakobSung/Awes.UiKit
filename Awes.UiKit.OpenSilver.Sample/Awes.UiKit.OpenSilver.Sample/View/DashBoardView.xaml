@@ -4,11 +4,18 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:Awes.UiKit.OpenSilver.Sample.View">
     
-    <Grid>
-        <TextBlock Text="Dashboard View" 
-                   HorizontalAlignment="Center" 
-                   VerticalAlignment="Center" 
-                   FontSize="24" 
-                   FontWeight="Bold"/>
+    <Grid Background="#1A1A1A">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Dashboard View" 
+                       HorizontalAlignment="Center" 
+                       FontSize="24" 
+                       FontWeight="Bold" />
+            
+            <TextBlock Text="{Binding Message}" 
+                       HorizontalAlignment="Center" 
+                       FontSize="18" 
+                       Foreground="Gray"
+                       Margin="0,10,0,0"/>
+        </StackPanel>
     </Grid>
 </UserControl>

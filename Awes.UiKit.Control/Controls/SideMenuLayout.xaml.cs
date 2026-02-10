@@ -5,12 +5,13 @@ using System;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.ComponentModel;
 
 namespace Awes.UiKit.Control
 {
     /// <summary>
-    /// SideMenuLayout.xaml¿¡ ´ëÇÑ »óÈ£ ÀÛ¿ë ³í¸®
-    /// OpenSilver¿Í WPF¿¡¼­ °øÅëÀ¸·Î »ç¿ë °¡´ÉÇÑ ÄÁÆ®·Ñ
+    /// SideMenuLayout.xamlì— ëŒ€í•œ ìƒí˜¸ ì‘ìš© ë…¼ë¦¬
+    /// OpenSilverì™€ WPFì—ì„œ ê³µí†µìœ¼ë¡œ ì‚¬ìš© ê°€ëŠ¥í•œ ì»¨íŠ¸ë¡¤
     /// </summary>
     public partial class SideMenuLayout : UserControl
     {
@@ -82,10 +83,14 @@ namespace Awes.UiKit.Control
             ((SideMenuLayout)d).ChangeItemTemplate((DataTemplate?)e.NewValue);
         }
 
+        private ILayoutManagerService? _layoutService;
+
         public SideMenuLayout()
         {
             this.InitializeComponent();
             this.Loaded += SideMenuLayout_Loaded;
+            this.Unloaded += SideMenuLayout_Unloaded;
+            menuList.SelectionChanged += MenuList_SelectionChanged;
         }
 
         private void SideMenuLayout_Loaded(object sender, RoutedEventArgs e)
@@ -98,20 +103,65 @@ namespace Awes.UiKit.Control
             {
                 try
                 {
-                    var layoutService = serviceProvider.GetService(typeof(ILayoutManagerService)) as ILayoutManagerService;
+                    _layoutService = serviceProvider.GetService(typeof(ILayoutManagerService)) as ILayoutManagerService;
 
-                    if (layoutService != null)
+                    if (_layoutService != null)
                     {
-                        var menus = layoutService.GetMenuItems();
+                        var menus = _layoutService.GetMenuItems();
                         menuList.ItemsSource = menus;
-                        menuList.SelectedItem = menus.FirstOrDefault();
+                        
+                        // ì„œë¹„ìŠ¤ì˜ í˜„ì¬ ë©”ë‰´ì™€ ë™ê¸°í™”
+                        if (_layoutService.CurrentMenu != null)
+                        {
+                            menuList.SelectedItem = _layoutService.CurrentMenu;
+                        }
+                        else
+                        {
+                            menuList.SelectedItem = menus.FirstOrDefault();
+                            _layoutService.CurrentMenu = menuList.SelectedItem as IMenuItem;
+                        }
+
+                        if (_layoutService is INotifyPropertyChanged notify)
+                        {
+                            notify.PropertyChanged += LayoutService_PropertyChanged;
+                        }
                     }
                 }
                 catch (Exception)
                 {
-                    throw; 
+                    // ignore
                 }
-                
+            }
+        }
+
+        private void SideMenuLayout_Unloaded(object sender, RoutedEventArgs e)
+        {
+            if (_layoutService is INotifyPropertyChanged notify)
+            {
+                notify.PropertyChanged -= LayoutService_PropertyChanged;
+            }
+        }
+
+        private void LayoutService_PropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(ILayoutManagerService.CurrentMenu))
+            {
+                if (menuList.SelectedItem != _layoutService?.CurrentMenu)
+                {
+                    menuList.SelectedItem = _layoutService?.CurrentMenu;
+                }
+            }
+        }
+
+        private void MenuList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (_layoutService != null && menuList.SelectedItem != null)
+            {
+                var selectedItem = menuList.SelectedItem as IMenuItem;
+                if (_layoutService.CurrentMenu != selectedItem)
+                {
+                    _layoutService.CurrentMenu = selectedItem;
+                }
             }
         }
 

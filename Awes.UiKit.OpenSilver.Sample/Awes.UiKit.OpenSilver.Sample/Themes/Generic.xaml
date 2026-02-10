@@ -7,13 +7,18 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="view:TestContentView">
-                    <Grid>
-                        <TextBlock
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            FontSize="24"
-                            FontWeight="Bold"
-                            Text="TestContentView" />
+                    <Grid Background="#2D2D2D">
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                FontSize="24"
+                                FontWeight="Bold"
+                                Text="{Binding Message}" />
+                            
+                            <Button Content="Go to Dashboard" 
+                                    Command="{Binding NavigateToDashboardCommand}"
+                                    Width="200" Height="40" Margin="0,20,0,0" />
+                        </StackPanel>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
