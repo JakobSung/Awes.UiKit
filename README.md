@@ -58,55 +58,26 @@ dotnet add package Awes.UiKit.Wpf
 
 ### OpenSilver
 
-openSilver Browser Project Blazor Program.cs
-
-```cshartp
-﻿using Awes.UiKit;
-using Awes.UiKit.OpenSilver.Builder;
-using Awes.UiKit.OpenSilver.Sample;
-using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using System;
-using System.Threading.Tasks;
-
-public class Program
-{
-    public static async Task Main(string[] args)
-    {
-        var host = OpenSilverWasmHostBuilder.CreateHost<App>(args);
-        await host.RunAsync();
-    }
-}
-
-```
-
-openSilver C# project App startup (`App.xaml.cs`):
+Browser (`Program.cs`):
 
 ```csharp
-using Awes.UiKit;
 using Awes.UiKit.OpenSilver.Builder;
-using Awes.UiKit.OpenSilver.Service;
-using Microsoft.Extensions.DependencyInjection;
 
-public sealed partial class App : Application
-{
-    public App()
-    {
-        this.InitializeComponent();
-
-        OpenSilverHostBuilder.CreateBuilder()
-                    .ConfigureServices(services =>
-                    {
-                        services.AddScoped<DashBoardView>();
-                        services.AddScoped<TestContentView>();
-                        services.AddScoped<TestViewModel>();
-                    })
-                    .ConfigureStartPage<MainPage>()
-                    .Build();
-    }
-}
+var host = OpenSilverWasmHostBuilder.CreateHost<App>(args);
+await host.RunAsync();
 ```
 
-Register menus (e.g., `openSilver C# project MainPage.xaml.cs`):
+App startup (`App.xaml.cs`):
+
+```csharp
+using Awes.UiKit.OpenSilver.Builder;
+
+OpenSilverHostBuilder.CreateBuilder()
+    .ConfigureStartPage<MainPage>()
+    .Build();
+```
+
+Register menus (`MainPage.xaml.cs`):
 
 ```csharp
 using Awes.UiKit;
@@ -114,24 +85,13 @@ using Awes.UiKit.Service;
 
 public partial class MainPage : Page
 {
-    public MainPage()
-    {
-        InitializeComponent();
-        Loaded += Page_Loaded;
-    }
-
     private void Page_Loaded(object sender, RoutedEventArgs e)
     {
-        if (_menuInitialized)
-        {
-            return;
-        }
+        var sp = AwesUiKit.GetServiceProvider();
+        var lm = sp?.GetService(typeof(ILayoutManagerService)) as ILayoutManagerService;
 
-        var serviceProvider = AwesUiKit.GetServiceProvider();
-        var layoutService = serviceProvider?.GetService(typeof(ILayoutManagerService)) as ILayoutManagerService;
-
-        layoutService?.AddMenu("Dashboard", typeof(DashBoardView), typeof(TestViewModel));
-        layoutService?.AddMenu("Test", typeof(TestContentView), typeof(TestViewModel));
+        lm?.AddMenu("DashBoard", typeof(DashBoardView), typeof(TestViewModel));
+        lm?.AddMenu("Test", typeof(TestContentView), typeof(TestViewModel));
     }
 }
 ```
@@ -143,21 +103,15 @@ More: `Awes.UiKit.OpenSilver/README.NuGet.md`
 App startup (`App.xaml.cs`):
 
 ```csharp
-using Awes.UiKit;
-using Awes.UiKit.Wpf.Builder;
-using Awes.UiKit.Wpf.Service;
-using Microsoft.Extensions.DependencyInjection;
+using System.Windows;
 
 public partial class App : Application
 {
 	public App()
         {
             WpfHost host = new WPFHostBuilder(this)
-                                    .ConfigureStartWindow<MainWindow>()
-                                    .ConfigureServices(services =>
-                                    {
-                                        //todo: add services and view,viewModels hear
-                                    })
+                                    .ConfigureStartWindow<MainWindow, MainViewModel>()
+                                    .ConfigureServices(_ => { })
                                     .Build();
 
             Task.Run(async () => await host.RunAsync());
